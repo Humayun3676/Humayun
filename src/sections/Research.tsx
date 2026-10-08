@@ -4,8 +4,8 @@ import { RESEARCH_DATA } from '../data/research';
 
 export const Research = () => {
   return (
-    <section id="research" className="py-12 lg:py-24 px-4 lg:px-6 relative bg-[#EFEFEF]">
-      <div className="max-w-7xl mx-auto">
+    <section id="research" className="scroll-mt-24 lg:scroll-mt-0 py-12 lg:py-24 px-4 lg:px-6 relative bg-[#EFEFEF]">
+      <div className="max-w-[1440px] w-full mx-auto">
         
         {/* Section Header */}
         <motion.div 

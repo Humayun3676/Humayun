@@ -21,7 +21,7 @@ export const Home = ({ onViewResume }: HomeProps) => {
     <div className="bg-[#EFEFEF] min-h-screen text-text-main font-sans flex flex-col lg:flex-row w-full overflow-x-hidden">
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
       
-      <div className="flex-1 mt-16 lg:mt-0 lg:ml-20 transition-all duration-300 w-full">
+      <div className="flex-1 mt-16 lg:mt-0 lg:ml-20 transition-all duration-300 w-full lg:w-[calc(100%-5rem)]">
         <main>
           <Hero onViewResume={onViewResume} />
           <About />

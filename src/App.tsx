@@ -2,8 +2,10 @@ import { useState } from 'react';
 import { Home } from './pages/Home';
 import { Resume } from './pages/Resume';
 import { ArrowLeft, Download, FileText } from 'lucide-react';
+import { Routes, Route } from 'react-router-dom';
+import { NotFound } from './pages/NotFound';
 
-function App() {
+function AppContent() {
   const [viewResume, setViewResume] = useState(false);
 
   const handleDownloadPDF = () => {
@@ -52,6 +54,15 @@ function App() {
         <FileText size={16} className="group-hover:scale-110 transition-transform" /> Preview Resume
       </button>
     </div>
+  );
+}
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<AppContent />} />
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
 }
 

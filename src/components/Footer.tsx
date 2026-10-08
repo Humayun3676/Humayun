@@ -12,7 +12,8 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
       {/* Subtle Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 
-      <div className="max-w-4xl mx-auto text-center relative z-10">
+      <div className="max-w-[1440px] mx-auto w-full">
+        <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -69,6 +70,7 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
         
         <div className="mt-12 text-center text-gray-500 text-sm font-medium">
           <p>Built with curiosity, code, and continuous learning.</p>
+        </div>
         </div>
       </div>
     </footer>

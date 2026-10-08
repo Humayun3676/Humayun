@@ -18,7 +18,8 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
 
   return (
     <>
-      <nav className="fixed left-0 top-0 w-full h-16 lg:h-full lg:w-20 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 z-50 flex flex-row lg:flex-col items-center px-4 lg:px-0 py-0 lg:py-6 justify-between">
+      <nav className="fixed left-0 top-0 w-full lg:w-20 h-16 lg:h-full bg-white border-b lg:border-b-0 lg:border-r border-gray-200 z-50">
+        <div className="max-w-[1440px] mx-auto w-full h-full flex flex-row lg:flex-col items-center px-4 lg:px-0 py-0 lg:py-6 justify-between">
         
         {/* Top: Hamburger Menu Toggle */}
         <button 
@@ -38,6 +39,7 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
             />
           </div>
         </a>
+        </div>
       </nav>
 
       {/* Drawer Overlay & Menu */}
