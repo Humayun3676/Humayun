@@ -25,7 +25,7 @@ export const CertificationGrid = () => {
   const duplicatedCerts = [...certs, ...certs, ...certs];
 
   return (
-    <div className="py-12 overflow-hidden relative w-full bg-surface">
+    <div className="py-12 overflow-hidden relative w-full bg-[#EFEFEF]">
       {/* Inline keyframes style so it guarantees scrolling without tailwind config dependency */}
       <style>{`
         @keyframes customMarquee {
@@ -42,13 +42,13 @@ export const CertificationGrid = () => {
         }
       `}</style>
 
-      <h3 className="text-center text-text-muted mb-10 uppercase tracking-widest text-sm">
+      <h3 className="text-center text-gray-500 mb-10 uppercase tracking-widest text-sm font-semibold">
         Certified & Affiliated With
       </h3>
 
       {/* Gradient Fading Edges */}
-      <div className="absolute left-0 top-0 z-10 w-24 h-full bg-gradient-to-r from-surface to-transparent pointer-events-none"></div>
-      <div className="absolute right-0 top-0 z-10 w-24 h-full bg-gradient-to-l from-surface to-transparent pointer-events-none"></div>
+      <div className="absolute left-0 top-0 z-10 w-24 h-full bg-gradient-to-r from-[#EFEFEF] to-transparent pointer-events-none"></div>
+      <div className="absolute right-0 top-0 z-10 w-24 h-full bg-gradient-to-l from-[#EFEFEF] to-transparent pointer-events-none"></div>
 
       {/* Scrolling Track */}
       <div className="animate-custom-marquee items-center gap-16">

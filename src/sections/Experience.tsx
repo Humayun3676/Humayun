@@ -5,7 +5,7 @@ import { EDUCATION_HISTORY } from '../data/education';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-24 px-6 bg-background relative border-t border-border">
+    <section id="experience" className="py-24 px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -16,9 +16,9 @@ export const Experience = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 tracking-tight">Experience & Education</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 shadow-neon"></div>
-          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Experience & Education</h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             My professional background and academic foundation.
           </p>
         </motion.div>
@@ -28,13 +28,13 @@ export const Experience = () => {
           {/* Experience Column */}
           <div>
             <div className="flex items-center gap-3 mb-10">
-              <div className="p-3 bg-primary/10 rounded-lg border border-primary/30">
+              <div className="p-3 bg-blue-50 rounded-lg">
                 <Briefcase className="text-primary w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-text-main">Professional Journey</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Professional Journey</h3>
             </div>
             
-            <div className="border-l-2 border-border pl-8 space-y-12 ml-4">
+            <div className="border-l-2 border-gray-200 pl-8 space-y-12 ml-4">
               {EXPERIENCE_HISTORY.map((exp, index) => (
                 <motion.div 
                   key={exp.id}
@@ -45,16 +45,16 @@ export const Experience = () => {
                   className="relative group"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-[41px] top-1 w-5 h-5 bg-background border-2 border-primary rounded-full group-hover:bg-primary transition-colors shadow-neon"></div>
+                  <div className="absolute -left-[41px] top-1 w-5 h-5 bg-white border-4 border-primary rounded-full group-hover:bg-primary transition-colors shadow-sm"></div>
                   
-                  <div className="bg-surface border border-border p-6 rounded-xl hover:border-primary/50 transition-all duration-300">
-                    <span className="text-primary text-sm font-medium tracking-wider uppercase mb-1 block">
+                  <div className="bg-white rounded-2xl shadow-soft p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <span className="text-primary text-sm font-bold tracking-wider uppercase mb-1 block">
                       {exp.period} • {exp.type}
                     </span>
-                    <h4 className="text-xl font-bold text-text-main mb-1">{exp.role}</h4>
-                    <h5 className="text-text-muted font-medium mb-4">{exp.organization}</h5>
+                    <h4 className="text-xl font-bold text-gray-900 mb-1">{exp.role}</h4>
+                    <h5 className="text-gray-600 font-medium mb-4">{exp.organization}</h5>
                     
-                    <p className="text-text-muted text-sm leading-relaxed mb-4">
+                    <p className="text-gray-600 text-sm leading-relaxed mb-4">
                       {exp.confidential ? exp.publicDescription : exp.description}
                     </p>
 
@@ -62,7 +62,7 @@ export const Experience = () => {
                     {exp.skills && exp.skills.length > 0 && (
                       <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-border/50">
                         {exp.skills.map((skill, sIndex) => (
-                          <span key={sIndex} className="text-xs text-text-muted bg-charcoal px-2 py-1 rounded">
+                          <span key={sIndex} className="text-xs font-medium text-gray-600 bg-gray-100 px-2 py-1 rounded">
                             {skill}
                           </span>
                         ))}
@@ -77,13 +77,13 @@ export const Experience = () => {
           {/* Education Column */}
           <div>
             <div className="flex items-center gap-3 mb-10">
-              <div className="p-3 bg-primary/10 rounded-lg border border-primary/30">
+              <div className="p-3 bg-blue-50 rounded-lg">
                 <GraduationCap className="text-primary w-6 h-6" />
               </div>
-              <h3 className="text-2xl font-bold text-text-main">Academic Foundation</h3>
+              <h3 className="text-2xl font-bold text-gray-900">Academic Foundation</h3>
             </div>
             
-            <div className="border-l-2 border-border pl-8 space-y-12 ml-4">
+            <div className="border-l-2 border-gray-200 pl-8 space-y-12 ml-4">
               {EDUCATION_HISTORY.map((edu, index) => (
                 <motion.div 
                   key={edu.id}
@@ -94,14 +94,14 @@ export const Experience = () => {
                   className="relative group"
                 >
                   {/* Timeline Dot */}
-                  <div className="absolute -left-[41px] top-1 w-5 h-5 bg-background border-2 border-primary rounded-full group-hover:bg-primary transition-colors shadow-neon"></div>
+                  <div className="absolute -left-[41px] top-1 w-5 h-5 bg-white border-4 border-primary rounded-full group-hover:bg-primary transition-colors shadow-sm"></div>
                   
-                  <div className="bg-surface border border-border p-6 rounded-xl hover:border-primary/50 transition-all duration-300">
-                    <span className="text-primary text-sm font-medium tracking-wider uppercase mb-1 block">
+                  <div className="bg-white rounded-2xl shadow-soft p-6 hover:-translate-y-1 hover:shadow-lg transition-all duration-300">
+                    <span className="text-primary text-sm font-bold tracking-wider uppercase mb-1 block">
                       {edu.status}
                     </span>
-                    <h4 className="text-xl font-bold text-text-main mb-1">{edu.degree}</h4>
-                    <h5 className="text-text-muted font-medium">{edu.institution}</h5>
+                    <h4 className="text-xl font-bold text-gray-900 mb-1">{edu.degree}</h4>
+                    <h5 className="text-gray-600 font-medium">{edu.institution}</h5>
                   </div>
                 </motion.div>
               ))}

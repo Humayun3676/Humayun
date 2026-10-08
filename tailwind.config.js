@@ -7,24 +7,20 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#050505',
-        surface: '#121212',
-        charcoal: '#1A1A1A',
-        border: '#262626',
+        background: '#f8fafc',
+        surface: '#ffffff',
+        border: '#e5e7eb',
         primary: {
-          DEFAULT: '#8B5CF6', // Purple/Violet
-          hover: '#7C3AED',
-          glow: 'rgba(139, 92, 246, 0.2)',
+          DEFAULT: '#2563eb', // blue-600
+          hover: '#1d4ed8', // blue-700
         },
         text: {
-          main: '#F3F4F6',
-          muted: '#9CA3AF',
-          dim: '#6B7280',
+          main: '#111827', // gray-900
+          muted: '#4b5563', // gray-600
         }
       },
       boxShadow: {
-        'glass': '0 8px 32px 0 rgba(0, 0, 0, 0.37)',
-        'neon': '0 0 20px rgba(139, 92, 246, 0.35)',
+        'soft': '0 10px 30px rgba(0, 0, 0, 0.08)',
       },
       animation: {
         marquee: 'marquee 25s linear infinite',

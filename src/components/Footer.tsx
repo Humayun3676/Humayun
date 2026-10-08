@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer = ({ onOpenContact }: FooterProps) => {
   return (
-    <footer className="bg-background border-t border-border pt-24 pb-12 px-6 relative overflow-hidden">
+    <footer className="bg-[#EFEFEF] border-t border-gray-200 pt-24 pb-12 px-6 relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 
@@ -19,17 +19,17 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
           transition={{ duration: 0.6 }}
           className="mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-text-main mb-6 tracking-tight">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
             LET'S BUILD SOMETHING <span className="text-primary">INTELLIGENT.</span>
           </h2>
-          <p className="text-text-muted text-lg mb-10 max-w-2xl mx-auto">
+          <p className="text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
             Have a project, opportunity, research idea, collaboration, or simply want to connect?
           </p>
           
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
             <button 
               onClick={onOpenContact}
-              className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-md transition-all shadow-neon font-medium"
+              className="w-full sm:w-auto px-8 py-3 bg-primary hover:bg-primary-hover text-white rounded-xl transition-all shadow-soft font-bold flex items-center justify-center"
             >
               Contact Now
             </button>
@@ -37,37 +37,37 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
               href={CONTACT.linkedin}
               target="_blank"
               rel="noreferrer"
-              className="w-full sm:w-auto px-8 py-3 bg-surface border border-border hover:border-primary text-text-main rounded-md transition-all font-medium flex items-center justify-center gap-2"
+              className="w-full sm:w-auto px-8 py-3 bg-white border-2 border-gray-200 hover:border-primary text-gray-900 hover:text-primary rounded-xl transition-all shadow-sm font-bold flex items-center justify-center gap-2 group"
             >
               <Globe className="text-primary group-hover:scale-110 transition-transform" size={20} /> LinkedIn
             </a>
           </div>
         </motion.div>
 
-        <div className="border-t border-border/50 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
+        <div className="border-t border-gray-200 pt-12 flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="text-left">
-            <h3 className="text-xl font-bold text-text-main tracking-wider mb-1">
+            <h3 className="text-xl font-bold text-gray-900 tracking-wider mb-1">
               HUMAYUN MIRZA
             </h3>
-            <p className="text-text-muted text-xs uppercase tracking-widest">
+            <p className="text-gray-600 text-xs uppercase tracking-widest">
               Software Engineer • AI/ML Enthusiast
             </p>
           </div>
 
           <div className="flex items-center gap-4">
-            <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="p-2 bg-charcoal border border-border rounded-md text-text-muted hover:text-primary hover:border-primary/50 transition-all">
+            <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Phone size={18} />
             </a>
-            <a href={getEmailLink()} className="p-2 bg-charcoal border border-border rounded-md text-text-muted hover:text-primary hover:border-primary/50 transition-all">
+            <a href={getEmailLink()} className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Mail size={18} />
             </a>
-            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="p-2 bg-charcoal border border-border rounded-md text-text-muted hover:text-primary hover:border-primary/50 transition-all">
+            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Globe size={18} />
             </a>
           </div>
         </div>
         
-        <div className="mt-12 text-center text-text-dim text-sm">
+        <div className="mt-12 text-center text-gray-500 text-sm font-medium">
           <p>Built with curiosity, code, and continuous learning.</p>
         </div>
       </div>

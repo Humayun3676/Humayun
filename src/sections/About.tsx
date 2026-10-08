@@ -36,7 +36,7 @@ export const About = () => {
   ];
 
   return (
-    <section id="about" className="py-24 px-6 bg-surface relative border-t border-border">
+    <section id="about" className="py-24 px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -47,9 +47,9 @@ export const About = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 tracking-tight">The Journey</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 shadow-neon"></div>
-          <p className="text-text-muted max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">The Journey</h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-gray-600 max-w-3xl mx-auto text-base md:text-lg leading-relaxed">
             My path began with programming fundamentals and evolved through modern software development into the realm of Artificial Intelligence. Today, I focus on bridging the gap between theoretical AI models and real-world application engineering, continuously learning and building along the way.
           </p>
         </motion.div>
@@ -63,17 +63,15 @@ export const About = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-charcoal border border-border p-8 rounded-xl hover:border-primary/50 transition-all duration-300 group hover:shadow-glass hover:-translate-y-1 cursor-default relative overflow-hidden"
+              className="bg-white p-8 rounded-2xl hover:shadow-lg transition-all duration-300 group shadow-soft hover:-translate-y-1 cursor-default relative overflow-hidden"
             >
-              {/* Subtle hover gradient background */}
-              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
               
               <div className="relative z-10">
-                <div className="group-hover:scale-110 group-hover:drop-shadow-[0_0_10px_rgba(139,92,246,0.5)] transition-all duration-300 origin-left">
+                <div className="group-hover:scale-110 transition-all duration-300 origin-left">
                   {item.icon}
                 </div>
-                <h3 className="text-xl font-bold text-text-main mb-3 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
-                <p className="text-text-muted text-sm leading-relaxed">{item.description}</p>
+                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-primary transition-colors duration-300">{item.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed">{item.description}</p>
               </div>
             </motion.div>
           ))}

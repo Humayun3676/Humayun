@@ -5,7 +5,7 @@ import { CertificationGrid } from '../components/CertificationGrid';
 
 export const Certifications = () => {
   return (
-    <section id="certifications" className="py-24 px-6 bg-surface relative border-t border-border">
+    <section id="certifications" className="py-24 px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -16,9 +16,9 @@ export const Certifications = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 tracking-tight">Certification Vault</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 shadow-neon"></div>
-          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Certification Vault</h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             A verified archive of my professional credentials, continuous learning, and specialized training in software engineering and artificial intelligence.
           </p>
         </motion.div>
@@ -32,23 +32,23 @@ export const Certifications = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-charcoal border ${cert.featured ? 'border-primary/40 shadow-[0_0_15px_rgba(139,92,246,0.05)]' : 'border-border'} p-6 rounded-xl hover:border-primary transition-all duration-300 group flex flex-col h-full relative`}
+              className={`bg-white rounded-2xl shadow-soft ${cert.featured ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : ''} p-6 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group flex flex-col h-full relative`}
             >
               <div className="flex justify-between items-start mb-4">
-                <div className="p-2 bg-background rounded-lg border border-border group-hover:border-primary/50 transition-colors">
-                  <Award className="text-primary w-6 h-6" />
+                <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-primary transition-colors">
+                  <Award className="text-primary group-hover:text-white w-6 h-6 transition-colors" />
                 </div>
-                <span className="text-xs font-medium text-text-muted bg-surface px-3 py-1 rounded-full border border-border">
+                <span className="text-xs font-bold text-primary bg-blue-50 px-3 py-1 rounded-full">
                   {cert.category}
                 </span>
               </div>
               
-              <h3 className="text-lg font-bold text-text-main mb-2 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-lg font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
                 {cert.title}
               </h3>
               
-              <p className="text-text-muted text-sm flex-grow">
-                Issued by <span className="text-text-main font-medium">{cert.issuer}</span>
+              <p className="text-gray-600 text-sm flex-grow">
+                Issued by <span className="text-gray-900 font-medium">{cert.issuer}</span>
               </p>
             </motion.div>
           ))}

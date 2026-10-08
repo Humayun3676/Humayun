@@ -4,7 +4,7 @@ import { RESEARCH_DATA } from '../data/research';
 
 export const Research = () => {
   return (
-    <section id="research" className="py-24 px-6 bg-surface relative border-t border-border">
+    <section id="research" className="py-24 px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -15,9 +15,9 @@ export const Research = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 tracking-tight">Research & Investigations</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 shadow-neon"></div>
-          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Research & Investigations</h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             Academic contributions, ongoing investigations, and published papers in the fields of Artificial Intelligence and Computer Vision.
           </p>
         </motion.div>
@@ -31,34 +31,34 @@ export const Research = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-charcoal border border-border p-8 rounded-xl hover:border-primary/60 transition-all duration-300 group flex flex-col h-full relative overflow-hidden shadow-glass"
+              className="bg-white rounded-2xl shadow-soft p-8 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group flex flex-col h-full relative overflow-hidden"
             >
               <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg border border-primary/30 text-primary group-hover:scale-110 transition-transform">
+                <div className="p-3 bg-blue-50 rounded-lg text-primary group-hover:scale-110 transition-transform">
                   <BookOpen size={24} />
                 </div>
                 <div>
-                  <span className={`text-xs font-bold tracking-wider uppercase block mb-1 ${item.status === 'Completed' ? 'text-green-400' : 'text-primary'}`}>
+                  <span className={`text-xs font-bold tracking-wider uppercase block mb-1 ${item.status === 'Completed' ? 'text-green-500' : 'text-primary'}`}>
                     {item.status}
                   </span>
-                  <span className="text-text-muted text-sm font-medium">
+                  <span className="text-gray-600 text-sm font-medium">
                     {item.area}
                   </span>
                 </div>
               </div>
               
-              <h3 className="text-xl font-bold text-text-main mb-4 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors duration-300">
                 {item.title}
               </h3>
               
-              <p className="text-text-muted mb-8 flex-grow leading-relaxed">
+              <p className="text-gray-600 text-sm leading-relaxed mb-6 flex-grow">
                 {item.description}
               </p>
 
               {/* Technologies Tags */}
               <div className="mt-auto pt-6 border-t border-border/50 flex flex-wrap gap-2">
                 {item.technologies.map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-background border border-border rounded-md text-xs text-text-muted">
+                  <span key={idx} className="px-3 py-1 bg-gray-100 rounded-md text-xs text-gray-600">
                     {tech}
                   </span>
                 ))}

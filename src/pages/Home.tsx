@@ -18,20 +18,22 @@ export const Home = ({ onViewResume }: HomeProps) => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <div className="bg-background min-h-screen text-text-main font-sans">
+    <div className="bg-[#EFEFEF] min-h-screen text-text-main font-sans flex">
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
       
-      <main>
-        <Hero onViewResume={onViewResume} />
-        <About />
-        <Skills />
-        <Projects />
-        <Research />
-        <Experience />
-        <Certifications />
-      </main>
+      <div className="flex-1 md:ml-20 transition-all duration-300">
+        <main>
+          <Hero onViewResume={onViewResume} />
+          <About />
+          <Skills />
+          <Projects />
+          <Research />
+          <Experience />
+          <Certifications />
+        </main>
 
-      <Footer onOpenContact={() => setIsContactOpen(true)} />
+        <Footer onOpenContact={() => setIsContactOpen(true)} />
+      </div>
       
       <ContactModal 
         isOpen={isContactOpen} 

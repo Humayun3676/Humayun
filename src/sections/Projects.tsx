@@ -4,7 +4,7 @@ import { PROJECTS_DATA } from '../data/projects';
 
 export const Projects = () => {
   return (
-    <section id="projects" className="py-24 px-6 bg-background relative border-t border-border">
+    <section id="projects" className="py-24 px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -15,9 +15,9 @@ export const Projects = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-text-main mb-4 tracking-tight">Featured Projects</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8 shadow-neon"></div>
-          <p className="text-text-muted max-w-2xl mx-auto text-base md:text-lg">
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Featured Projects</h2>
+          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
+          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
             A showcase of my technical journey, from core programming fundamentals to advanced artificial intelligence and full-stack applications.
           </p>
         </motion.div>
@@ -31,33 +31,33 @@ export const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-surface border ${project.featured ? 'border-primary/50 shadow-[0_0_15px_rgba(139,92,246,0.1)]' : 'border-border'} p-8 rounded-xl hover:border-primary/80 transition-all duration-300 group flex flex-col h-full relative overflow-hidden`}
+              className={`bg-white rounded-2xl shadow-soft ${project.featured ? 'ring-2 ring-primary ring-offset-2 ring-offset-slate-50' : ''} p-8 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group flex flex-col h-full relative overflow-hidden`}
             >
               {/* Top Row: Icon & Featured Star */}
               <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-charcoal rounded-lg border border-border group-hover:border-primary/50 transition-colors">
-                  <FolderGit2 className="text-primary w-6 h-6" />
+                <div className="p-3 bg-blue-50 text-primary rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
+                  <FolderGit2 className="w-6 h-6" />
                 </div>
                 {project.featured && (
-                  <div className="flex items-center gap-1 bg-primary/10 px-3 py-1 rounded-full border border-primary/30">
-                    <Star className="w-3 h-3 text-primary fill-primary" />
-                    <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Featured</span>
+                  <div className="flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full text-primary">
+                    <Star className="w-3 h-3 fill-primary" />
+                    <span className="text-[10px] font-bold uppercase tracking-wider">Featured</span>
                   </div>
                 )}
               </div>
               
-              <h3 className="text-xl font-bold text-text-main mb-2 group-hover:text-primary transition-colors duration-300">
+              <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-primary transition-colors duration-300">
                 {project.title}
               </h3>
               
-              <p className="text-text-muted text-sm mb-6 flex-grow leading-relaxed">
+              <p className="text-gray-600 text-sm mb-6 flex-grow leading-relaxed">
                 {project.description}
               </p>
 
               {/* Technologies Tags */}
-              <div className="mt-auto pt-6 border-t border-border/50 flex flex-wrap gap-2">
+              <div className="mt-auto pt-6 border-t border-gray-100 flex flex-wrap gap-2">
                 {project.technologies.map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-charcoal border border-border rounded-md text-xs text-text-muted font-medium">
+                  <span key={idx} className="px-3 py-1 bg-gray-100 rounded-lg text-xs text-gray-600 font-medium">
                     {tech}
                   </span>
                 ))}

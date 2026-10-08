@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -7,17 +7,7 @@ interface NavbarProps {
 }
 
 export const Navbar = ({ onOpenContact }: NavbarProps) => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Handle scroll effect for glassmorphism
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const navLinks = [
     { name: 'Projects', href: '#projects' },
@@ -27,74 +17,82 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-background/80 backdrop-blur-md border-b border-border shadow-glass' : 'bg-transparent'
-    }`}>
-      <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+    <>
+      <nav className="fixed left-0 top-0 h-full w-16 md:w-20 bg-white border-r border-gray-200 z-50 flex flex-col items-center py-6 justify-between">
         
-        {/* Profile Picture Logo */}
+        {/* Top: Hamburger Menu Toggle */}
+        <button 
+          className="text-gray-600 hover:text-gray-900 transition-colors p-2"
+          onClick={() => setMobileMenuOpen(true)}
+        >
+          <Menu size={28} strokeWidth={1.5} />
+        </button>
+
+        {/* Bottom: Profile Picture Logo */}
         <a href="/" className="relative group">
-          <div className="w-10 h-10 rounded-full p-[2px] bg-gradient-to-r from-primary to-primary-hover group-hover:shadow-[0_0_15px_rgba(139,92,246,0.5)] transition-all duration-300">
-            {/* MAKE SURE THIS src MATCHES YOUR FILE NAME IN THE PUBLIC FOLDER */}
+          <div className="w-8 h-8 md:w-10 md:h-10 rounded-full p-[2px] border border-slate-200 group-hover:border-gray-400 transition-all duration-300">
             <img 
-              src="/profile.png" 
+              src="/humayun.jpg" 
               alt="Humayun Mirza" 
-              className="w-full h-full rounded-full object-cover border-2 border-background"
+              className="w-full h-full rounded-full object-cover grayscale contrast-125"
             />
           </div>
         </a>
+      </nav>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <a key={link.name} href={link.href} className="text-sm font-medium text-text-muted hover:text-white transition-colors">
-              {link.name}
-            </a>
-          ))}
-          <button onClick={onOpenContact} className="px-5 py-2 text-sm font-medium bg-primary/10 text-primary border border-primary/30 rounded-md hover:bg-primary hover:text-white transition-all shadow-neon">
-            Contact Now
-          </button>
-        </div>
-
-        {/* Mobile Menu Toggle */}
-        <button 
-          className="md:hidden text-text-main"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-        >
-          {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-      </div>
-
-      {/* Mobile Navigation Dropdown */}
+      {/* Drawer Overlay & Menu */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 w-full bg-surface border-b border-border md:hidden"
-          >
-            <div className="flex flex-col p-6 space-y-4">
-              {navLinks.map((link) => (
-                <a 
-                  key={link.name} 
-                  href={link.href}
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="text-text-muted hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
-              <button onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenContact();
-              }} className="mt-4 px-5 py-3 w-full text-center bg-primary text-white rounded-md font-medium">
-                Contact Now
-              </button>
-            </div>
-          </motion.div>
+          <>
+            {/* Backdrop */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-[51]"
+            />
+            
+            {/* Sliding Drawer */}
+            <motion.div 
+              initial={{ x: '-100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '-100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 left-0 h-full w-72 bg-white shadow-soft z-[52] flex flex-col"
+            >
+              <div className="p-6 flex justify-between items-center border-b border-gray-100">
+                <span className="font-bold text-gray-900 text-lg tracking-tight">Navigation</span>
+                <button onClick={() => setMobileMenuOpen(false)} className="text-gray-600 hover:text-gray-900 p-2">
+                  <X size={24} />
+                </button>
+              </div>
+
+              <div className="flex flex-col p-6 space-y-2 flex-grow">
+                {navLinks.map((link) => (
+                  <a 
+                    key={link.name} 
+                    href={link.href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="text-gray-600 font-medium hover:text-primary hover:bg-background px-4 py-3 rounded-xl transition-all"
+                  >
+                    {link.name}
+                  </a>
+                ))}
+              </div>
+
+              <div className="p-6 border-t border-gray-100">
+                <button onClick={() => {
+                  setMobileMenuOpen(false);
+                  onOpenContact();
+                }} className="w-full px-5 py-4 text-center bg-primary text-white rounded-xl font-bold hover:bg-primary-hover shadow-soft transition-all">
+                  Contact Now
+                </button>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
-    </nav>
+    </>
   );
 };
