@@ -3,21 +3,21 @@ import type { Project } from '../types';
 export const PROJECTS_DATA: Project[] = [
   {
     id: "proj-1",
-    title: "FairSelect - Smart Interview Application",
-    slug: "fairselect",
-    category: "AI/ML",
-    description: "An AI-powered smart interview evaluation system utilizing deep learning and NLP techniques. Built with a Python backend and packaged as a desktop app.",
-    technologies: ["Python", "Deep Learning", "NLP", "Electron.js", "HTML/CSS", "JavaScript"],
+    title: "21st Century Physio Admin & Verification Portal",
+    slug: "21st-century-physio",
+    category: "Web",
+    description: "A fully live, client-approved administration and certificate verification portal featuring secure database integration, robust record management, and optimized client-side data pagination.",
+    technologies: ["React", "Supabase", "Vercel", "JavaScript", "CSS"],
     status: "Completed",
     featured: true
   },
   {
     id: "proj-2",
-    title: "Leather Defect Classification",
-    slug: "leather-defect",
-    category: "Computer Vision",
-    description: "Deep learning classification system for automated quality control and defect detection using real-time leather industrial datasets.",
-    technologies: ["Python", "Deep Learning", "Computer Vision", "Neural Networks"],
+    title: "FairSelect - Smart Interview Application",
+    slug: "fairselect",
+    category: "AI/ML",
+    description: "An AI-powered smart interview evaluation system utilizing deep learning and NLP techniques. Built with a Python backend and packaged as a desktop app.",
+    technologies: ["Python", "Deep Learning", "NLP", "Electron.js", "HTML/CSS", "JavaScript"],
     status: "Completed",
     featured: true
   },
@@ -33,6 +33,17 @@ export const PROJECTS_DATA: Project[] = [
   },
   {
     id: "proj-4",
+    title: "Leather Defect Classification",
+    slug: "leather-defect",
+    category: "Computer Vision",
+    description: "Deep learning classification system for automated quality control and defect detection using real-time leather industrial datasets.",
+    technologies: ["Python", "Deep Learning", "Computer Vision", "Neural Networks"],
+    status: "Completed",
+    featured: false
+  },
+
+  {
+    id: "proj-5",
     title: "Hexatech Gadgets Store",
     slug: "hexatech",
     category: "Mobile",
@@ -42,7 +53,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-5",
+    id: "proj-6",
     title: "React E-Commerce Platform",
     slug: "react-ecommerce",
     category: "Web",
@@ -52,7 +63,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-6",
+    id: "proj-7",
     title: "Camera Filters Application",
     slug: "camera-filters",
     category: "Computer Vision",
@@ -62,7 +73,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-7",
+    id: "proj-8",
     title: "Hospital Management System (GUI)",
     slug: "hospital-management-csharp",
     category: "Desktop",
@@ -72,7 +83,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-8",
+    id: "proj-9",
     title: "Hospital Management System (Core)",
     slug: "hospital-management-cpp",
     category: "Desktop",
@@ -82,7 +93,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-9",
+    id: "proj-10",
     title: "Car Rentals Management System",
     slug: "car-rentals",
     category: "Desktop",
@@ -92,7 +103,7 @@ export const PROJECTS_DATA: Project[] = [
     featured: false
   },
   {
-    id: "proj-10",
+    id: "proj-11",
     title: "ITC Computers Web Platform",
     slug: "itc-computers",
     category: "Web",
@@ -101,4 +112,5 @@ export const PROJECTS_DATA: Project[] = [
     status: "Completed",
     featured: false
   }
+
 ];

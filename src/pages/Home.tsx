@@ -18,10 +18,10 @@ export const Home = ({ onViewResume }: HomeProps) => {
   const [isContactOpen, setIsContactOpen] = useState(false);
 
   return (
-    <div className="bg-[#EFEFEF] min-h-screen text-text-main font-sans flex">
+    <div className="bg-[#EFEFEF] min-h-screen text-text-main font-sans flex flex-col lg:flex-row w-full overflow-x-hidden">
       <Navbar onOpenContact={() => setIsContactOpen(true)} />
       
-      <div className="flex-1 md:ml-20 transition-all duration-300">
+      <div className="flex-1 mt-16 lg:mt-0 lg:ml-20 transition-all duration-300 w-full">
         <main>
           <Hero onViewResume={onViewResume} />
           <About />

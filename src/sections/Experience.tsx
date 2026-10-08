@@ -5,7 +5,7 @@ import { EDUCATION_HISTORY } from '../data/education';
 
 export const Experience = () => {
   return (
-    <section id="experience" className="py-24 px-6 relative bg-[#EFEFEF]">
+    <section id="experience" className="py-12 lg:py-24 px-4 lg:px-6 relative bg-[#EFEFEF]">
       <div className="max-w-7xl mx-auto">
         
         {/* Section Header */}
@@ -23,7 +23,7 @@ export const Experience = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-16">
           
           {/* Experience Column */}
           <div>

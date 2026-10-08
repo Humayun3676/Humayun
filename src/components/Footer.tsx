@@ -8,7 +8,7 @@ interface FooterProps {
 
 export const Footer = ({ onOpenContact }: FooterProps) => {
   return (
-    <footer className="bg-[#EFEFEF] border-t border-gray-200 pt-24 pb-12 px-6 relative overflow-hidden">
+    <footer className="bg-[#EFEFEF] border-t border-gray-200 pt-12 lg:pt-24 pb-8 lg:pb-12 px-4 lg:px-6 relative overflow-hidden">
       {/* Subtle Background Glow */}
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-primary/10 rounded-full blur-[120px] pointer-events-none"></div>
 

@@ -2,13 +2,13 @@ export const Resume = () => {
   return (
     <div className="bg-white min-h-screen py-4 px-2 sm:p-8 flex justify-center font-sans text-gray-900">
       <div className="w-full max-w-[800px] bg-white p-4 sm:p-10 shadow-sm border border-gray-200 overflow-hidden" id="resume-print-area">
-        
+
         {/* HEADER */}
         <header className="text-center border-b-2 border-gray-900 pb-4 mb-6">
           <h1 className="text-2xl sm:text-4xl font-bold uppercase tracking-wide mb-2">Humayun Mirza</h1>
           <p className="text-xs sm:text-sm leading-relaxed px-2">
-            Sialkot, Pakistan • humayun.mirzaa1@gmail.com • +92-331-681-4569<br/>
-            linkedin.com/in/humayun3676 
+            Sialkot, Pakistan • humayun.mirzaa1@gmail.com • +92-331-681-4569<br />
+            linkedin.com/in/humayun3676
           </p>
         </header>
 
@@ -34,7 +34,7 @@ export const Resume = () => {
         {/* EXPERIENCE */}
         <section className="mb-6">
           <h2 className="text-base sm:text-lg font-bold uppercase border-b border-gray-400 mb-3 pb-1">Professional Experience</h2>
-          
+
           <div className="mb-4">
             <div className="flex flex-col sm:flex-row justify-between sm:items-baseline mb-1">
               <h3 className="font-bold text-sm sm:text-base">Associate Software Engineer</h3>
@@ -76,7 +76,7 @@ export const Resume = () => {
         {/* RESEARCH & INVESTIGATIONS */}
         <section className="mb-6">
           <h2 className="text-base sm:text-lg font-bold uppercase border-b border-gray-400 mb-3 pb-1">Research & Publications</h2>
-          
+
           <div className="mb-3">
             <h3 className="font-bold text-xs sm:text-sm">Asthma Severity Prediction Using AI on Real-Time Datasets | <span className="font-normal italic">Python, Scikit-learn, Pandas</span></h3>
             <p className="text-xs sm:text-sm mt-1">Researched and trained classification models to accurately predict asthma severity using real-time laboratory patient metric datasets (PEFR, eosinophil, FEV1%).</p>
@@ -91,10 +91,14 @@ export const Resume = () => {
         {/* PROJECTS */}
         <section className="mb-6">
           <h2 className="text-base sm:text-lg font-bold uppercase border-b border-gray-400 mb-3 pb-1">Selected Projects</h2>
-          
+
           <div className="mb-3">
             <h3 className="font-bold text-xs sm:text-sm">FairSelect - Smart Interview Application | <span className="font-normal italic">Python, OpenCV, DeepFace, Electron.js</span></h3>
             <p className="text-xs sm:text-sm mt-1">Built an AI-powered smart interview evaluation system featuring real-time emotion and gesture detection, packaged into a desktop application.</p>
+          </div>
+          <div className="mb-3">
+            <h3 className="font-bold text-xs sm:text-sm">21st Century Physio - Admin & Verification Portal | <span className="font-normal italic">React, Supabase, Vercel</span></h3>
+            <p className="text-xs sm:text-sm mt-1">Built a fully live, client-approved administration and certificate verification portal featuring secure database integration, robust record management, and optimized client-side data pagination.</p>
           </div>
 
           <div className="mb-3">

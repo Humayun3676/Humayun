@@ -18,7 +18,7 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
 
   return (
     <>
-      <nav className="fixed left-0 top-0 h-full w-16 md:w-20 bg-white border-r border-gray-200 z-50 flex flex-col items-center py-6 justify-between">
+      <nav className="fixed left-0 top-0 w-full h-16 lg:h-full lg:w-20 bg-white border-b lg:border-b-0 lg:border-r border-gray-200 z-50 flex flex-row lg:flex-col items-center px-4 lg:px-0 py-0 lg:py-6 justify-between">
         
         {/* Top: Hamburger Menu Toggle */}
         <button 
@@ -32,7 +32,7 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
         <a href="/" className="relative group">
           <div className="w-8 h-8 md:w-10 md:h-10 rounded-full p-[2px] border border-slate-200 group-hover:border-gray-400 transition-all duration-300">
             <img 
-              src="/humayun.jpg" 
+              src="/profile.png" 
               alt="Humayun Mirza" 
               className="w-full h-full rounded-full object-cover grayscale contrast-125"
             />

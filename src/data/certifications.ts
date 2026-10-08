@@ -21,7 +21,7 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     title: "AI For Beginners",
     issuer: "HP",
     category: "AI / ML",
-    featured: false
+    featured: true
   },
   {
     id: "cert-4",
@@ -44,7 +44,7 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     title: "Software Design Methods and Tools",
     issuer: "University of Colorado",
     category: "Software Engineering",
-    featured: true
+    featured: false
   },
   {
     id: "cert-7",
@@ -58,7 +58,7 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     title: "Java Certification",
     issuer: "University of Pennsylvania",
     category: "Programming",
-    featured: true
+    featured: false
   },
   {
     id: "cert-9",
@@ -180,7 +180,7 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     title: "IEEE International Student Membership 2024",
     issuer: "IEEE",
     category: "Membership",
-    featured: true
+    featured: false
   },
   {
     id: "cert-25",
@@ -231,6 +231,6 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     title: "Speed Programming Competition — Winner",
     issuer: "Innovative Lyallpur Event",
     category: "Achievement",
-    featured: true
+    featured: false
   }
 ];

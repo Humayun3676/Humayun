@@ -26,7 +26,7 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="py-24 px-6 bg-[#EFEFEF] relative">
+    <section id="skills" className="py-12 lg:py-24 px-4 lg:px-6 bg-[#EFEFEF] relative">
       {/* Background decoration */}
       <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none"></div>
 
