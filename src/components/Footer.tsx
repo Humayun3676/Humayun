@@ -37,7 +37,7 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
             <a 
               href={CONTACT.linkedin}
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
               className="w-full sm:w-auto px-8 py-3 bg-white border-2 border-gray-200 hover:border-primary text-gray-900 hover:text-primary rounded-xl transition-all shadow-sm font-bold flex items-center justify-center gap-2 group"
             >
               <Globe className="text-primary group-hover:scale-110 transition-transform" size={20} /> LinkedIn
@@ -56,13 +56,13 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
           </div>
 
           <div className="flex items-center gap-4">
-            <a href={getWhatsAppLink()} target="_blank" rel="noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
+            <a href={getWhatsAppLink()} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Phone size={18} />
             </a>
             <a href={getEmailLink()} className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Mail size={18} />
             </a>
-            <a href={CONTACT.linkedin} target="_blank" rel="noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
+            <a href={CONTACT.linkedin} target="_blank" rel="noopener noreferrer" className="p-2 bg-slate-50 border border-gray-200 rounded-lg text-gray-600 hover:text-primary hover:border-primary/50 transition-all">
               <Globe size={18} />
             </a>
           </div>
