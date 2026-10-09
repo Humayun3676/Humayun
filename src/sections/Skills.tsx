@@ -26,7 +26,7 @@ export const Skills = () => {
   ];
 
   return (
-    <section id="skills" className="scroll-mt-24 lg:scroll-mt-0 py-12 lg:py-24 px-4 lg:px-6 bg-[#EFEFEF] relative">
+    <section id="skills" className="scroll-mt-24 lg:scroll-mt-0 py-12 lg:py-24 px-4 lg:px-6 bg-[#EFEFEF] dark:bg-slate-900 relative transition-colors duration-300">
       {/* Background decoration */}
       <div className="absolute top-40 right-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -40,9 +40,9 @@ export const Skills = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4 tracking-tight">Technical Arsenal</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4 tracking-tight">Technical Arsenal</h2>
           <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
-          <p className="text-gray-600 max-w-2xl mx-auto text-base md:text-lg">
+          <p className="text-gray-600 dark:text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
             A comprehensive map of the technologies, languages, and frameworks I use to build intelligent applications and robust software systems.
           </p>
         </motion.div>
@@ -56,20 +56,20 @@ export const Skills = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="bg-white rounded-2xl shadow-soft p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
+              className="bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-2xl shadow-soft p-8 hover:-translate-y-1 hover:shadow-lg transition-all duration-300"
             >
               <div className="flex items-center gap-4 mb-6">
                 <div className="p-3 bg-blue-50 rounded-lg">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900">{category.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100">{category.title}</h3>
               </div>
               
               <div className="flex flex-wrap gap-3">
                 {category.skills.map((skill, skillIndex) => (
                   <span 
                     key={skillIndex}
-                    className="px-4 py-2 bg-gray-100 rounded-full text-sm text-gray-600 hover:text-primary hover:bg-blue-50 hover:scale-105 transition-all duration-300 cursor-default"
+                    className="px-4 py-2 bg-gray-100 dark:bg-slate-700 rounded-full text-sm text-gray-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary hover:bg-blue-50 dark:hover:bg-slate-600 hover:scale-105 transition-all duration-300 cursor-default"
                   >
                     {skill}
                   </span>

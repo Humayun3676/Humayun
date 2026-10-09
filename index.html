@@ -35,6 +35,16 @@
       "knowsAbout": ["Software Engineering", "Artificial Intelligence", "Machine Learning", "React", "Python"]
     }
     </script>
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem('theme');
+          var dark = localStorage.getItem('theme') === 'dark';
+          document.documentElement.classList.toggle('dark', dark);
+          document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
+        } catch (e) {}
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

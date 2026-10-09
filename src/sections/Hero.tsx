@@ -6,8 +6,8 @@ interface HeroProps {
 
 export const Hero = ({ onViewResume }: HeroProps) => {
   return (
-    <section className="relative flex items-center justify-center overflow-hidden px-4 lg:px-6 bg-[#EFEFEF]">
-      <div className="relative z-10 max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row-reverse items-center justify-between gap-8 lg:gap-16 py-16 lg:py-24">
+    <section className="relative flex items-center justify-center overflow-hidden px-4 lg:px-6 bg-[#EFEFEF] dark:bg-slate-900 transition-colors duration-300">
+      <div className="relative z-10 max-w-[1440px] mx-auto w-full flex flex-col lg:flex-row-reverse items-center justify-between gap-8 lg:gap-16 pt-8 pb-8 lg:pt-12 lg:pb-12">
         
         {/* Left Column: Text */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center text-center lg:text-left order-1 lg:pr-12">
@@ -16,7 +16,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.1 }}
-              className="text-5xl md:text-7xl font-bold text-gray-900 tracking-tight mb-4"
+              className="text-5xl md:text-7xl font-bold text-gray-900 dark:text-slate-100 tracking-tight mb-4"
             >
               Hi, I'm <br className="hidden lg:block" /> HUMAYUN MIRZA
             </motion.h1>
@@ -25,7 +25,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-xl md:text-3xl font-bold text-gray-500 tracking-wider mb-6"
+              className="text-xl md:text-3xl font-bold text-gray-500 dark:text-slate-400 tracking-wider mb-6"
             >
               SOFTWARE ENGINEER
             </motion.h2>
@@ -34,7 +34,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="text-gray-500 text-xs md:text-sm tracking-widest uppercase mb-8 font-semibold"
+              className="text-gray-500 dark:text-slate-400 text-xs md:text-sm tracking-widest uppercase mb-8 font-semibold"
             >
               AI/ML Enthusiast • Researcher • Developer • Builder • Leader
             </motion.p>
@@ -43,7 +43,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.8, delay: 0.4 }}
-              className="text-gray-600 mb-10 leading-relaxed text-base md:text-lg"
+              className="text-gray-600 dark:text-slate-300 mb-10 leading-relaxed text-base md:text-lg"
             >
               Building practical software and exploring intelligent systems through artificial intelligence, machine learning, computer vision, and modern software engineering.
             </motion.p>
@@ -59,7 +59,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
               </a>
               <button 
                 onClick={onViewResume}
-                className="w-full sm:w-auto px-8 py-3 bg-white border-2 border-gray-200 text-gray-900 hover:border-primary hover:text-primary rounded-xl transition-all shadow-sm font-bold flex items-center justify-center gap-2"
+                className="w-full sm:w-auto px-8 py-3 bg-white dark:bg-slate-800 border-2 border-gray-200 dark:border-slate-700 text-gray-900 dark:text-slate-100 hover:border-primary dark:hover:border-primary hover:text-primary dark:hover:text-primary rounded-xl transition-all shadow-sm font-bold flex items-center justify-center gap-2"
               >
                 View Resume
               </button>

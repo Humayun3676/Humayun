@@ -14,7 +14,7 @@ function AppContent() {
 
   if (viewResume) {
     return (
-      <div className="min-h-screen bg-gray-100 flex flex-col items-center">
+      <div className="min-h-screen bg-gray-100 dark:bg-slate-900 flex flex-col items-center transition-colors duration-300">
         {/* Fixed Top Bar */}
         <div className="w-full bg-gray-900 text-white py-3 px-4 sm:px-6 shadow-md flex justify-between items-center gap-2 print:hidden sticky top-0 z-50">
           <button 

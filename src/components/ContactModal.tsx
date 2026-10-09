@@ -29,17 +29,17 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
               initial={{ opacity: 0, scale: 0.95, y: 20 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
-              className="w-full max-w-md bg-white border border-gray-100 rounded-2xl shadow-soft overflow-hidden pointer-events-auto"
+              className="w-full max-w-md bg-white dark:bg-slate-800 border border-gray-100 dark:border-slate-700 rounded-2xl shadow-soft overflow-hidden pointer-events-auto"
             >
               <div className="p-6">
                 <div className="flex justify-between items-center mb-6">
-                  <h3 className="text-xl font-bold text-gray-900 tracking-tight">LET'S CONNECT</h3>
-                  <button onClick={onClose} className="text-gray-500 hover:text-gray-900 transition-colors bg-slate-50 p-1 rounded-lg border border-gray-200">
+                  <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 tracking-tight">LET'S CONNECT</h3>
+                  <button onClick={onClose} className="text-gray-500 dark:text-slate-400 hover:text-gray-900 dark:hover:text-white transition-colors bg-slate-50 dark:bg-slate-700 p-1 rounded-lg border border-gray-200 dark:border-slate-600">
                     <X size={20} />
                   </button>
                 </div>
                 
-                <p className="text-gray-600 mb-8 text-sm leading-relaxed">
+                <p className="text-gray-600 dark:text-slate-300 mb-8 text-sm leading-relaxed">
                   Have a project, opportunity, collaboration, or idea? Reach out directly through any of these platforms.
                 </p>
 
@@ -48,7 +48,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                     href={getWhatsAppLink()} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-slate-50 hover:bg-blue-50 rounded-xl text-gray-900 transition-colors border border-gray-100 hover:border-primary/50 group"
+                    className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-slate-600 rounded-xl text-gray-900 dark:text-slate-100 transition-colors border border-gray-100 dark:border-slate-600 hover:border-primary/50 group"
                   >
                     <Phone className="text-primary group-hover:scale-110 transition-transform" size={20} />
                     <span className="font-semibold">Chat on WhatsApp</span>
@@ -56,7 +56,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
 
                   <a 
                     href={getEmailLink()} 
-                    className="flex items-center gap-3 p-4 bg-slate-50 hover:bg-blue-50 rounded-xl text-gray-900 transition-colors border border-gray-100 hover:border-primary/50 group"
+                    className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-slate-600 rounded-xl text-gray-900 dark:text-slate-100 transition-colors border border-gray-100 dark:border-slate-600 hover:border-primary/50 group"
                   >
                     <Mail className="text-primary group-hover:scale-110 transition-transform" size={20} />
                     <span className="font-semibold">Email Me</span>
@@ -66,7 +66,7 @@ export const ContactModal = ({ isOpen, onClose }: ContactModalProps) => {
                     href={CONTACT.linkedin}
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center gap-3 p-4 bg-slate-50 hover:bg-blue-50 rounded-xl text-gray-900 transition-colors border border-gray-100 hover:border-primary/50 group"
+                    className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-700 hover:bg-blue-50 dark:hover:bg-slate-600 rounded-xl text-gray-900 dark:text-slate-100 transition-colors border border-gray-100 dark:border-slate-600 hover:border-primary/50 group"
                   >
                     <Globe className="text-primary group-hover:scale-110 transition-transform" size={20} />
                     <span className="font-semibold">Connect on LinkedIn</span>
