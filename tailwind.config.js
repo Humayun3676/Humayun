@@ -25,11 +25,16 @@ export default {
       },
       animation: {
         marquee: 'marquee 25s linear infinite',
+        fadeIn: 'fadeIn 0.2s ease-out forwards',
       },
       keyframes: {
         marquee: {
           '0%': { transform: 'translateX(0%)' },
           '100%': { transform: 'translateX(-50%)' },
+        },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
         },
       },
     },
