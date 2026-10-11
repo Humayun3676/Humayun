@@ -2,21 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/png" href="/profile.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
-    <!-- SEO Meta Tags -->
-    <title>Humayun Mirza | Software & AI Engineer</title>
-    <meta name="description" content="Portfolio of Humayun Mirza, Software and AI Engineer based in Sialkot, Pakistan, specializing in full-stack web development, machine learning, and AI applications." />
-    
-    <!-- Open Graph / Social Sharing Tags -->
+    <!-- Primary SEO Metadata -->
+    <title>Humayun Mirza | Software Engineer &amp; AI/ML Developer, Sialkot</title>
+    <meta name="description" content="Humayun Mirza is a Software Engineer and AI/ML Developer from Sialkot, Pakistan, building intelligent systems in machine learning and computer vision." />
+    <meta name="author" content="Humayun Mirza" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://humayun-pearl.vercel.app/" />
+
+    <!-- Performance: LCP Image Preload -->
+    <link rel="preload" as="image" href="/humayun-mirza-software-engineer.webp" type="image/webp" fetchpriority="high" />
+
+    <!-- Theme Color (Exact computed body backgrounds: Light #EFEFEF, Dark #0B1120) -->
+    <meta name="theme-color" content="#EFEFEF" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+
+    <!-- Favicon & Icons -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Humayun Mirza | Software & AI Engineer" />
-    <meta property="og:description" content="Explore my professional background, projects, and certifications." />
-    <meta property="og:image" content="https://humayun-pearl.vercel.app/profile.png" />
+    <meta property="og:site_name" content="Humayun Mirza" />
+    <meta property="og:title" content="Humayun Mirza | Software Engineer &amp; AI/ML Developer, Sialkot" />
+    <meta property="og:description" content="Humayun Mirza is a Software Engineer and AI/ML Developer from Sialkot, Pakistan, building intelligent systems in machine learning and computer vision." />
     <meta property="og:url" content="https://humayun-pearl.vercel.app/" />
-    
-    <!-- GEO (Generative Engine Optimization) Structured Data -->
+    <meta property="og:image" content="https://humayun-pearl.vercel.app/og-image.png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Humayun Mirza - Software Engineer &amp; AI/ML Developer from Sialkot, Pakistan" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Humayun Mirza | Software Engineer &amp; AI/ML Developer, Sialkot" />
+    <meta name="twitter:description" content="Humayun Mirza is a Software Engineer and AI/ML Developer from Sialkot, Pakistan, building intelligent systems in machine learning and computer vision." />
+    <meta name="twitter:image" content="https://humayun-pearl.vercel.app/og-image.png" />
+    <meta name="twitter:image:alt" content="Humayun Mirza - Software Engineer &amp; AI/ML Developer from Sialkot, Pakistan" />
+
+    <!-- GEO / Person Structured Data Baseline -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -35,11 +63,13 @@
       "knowsAbout": ["Software Engineering", "Artificial Intelligence", "Machine Learning", "React", "Python"]
     }
     </script>
+
+    <!-- Theme Initialization Script (Prevents flash of unstyled theme on cold start) -->
     <script>
       (function () {
         try {
           var t = localStorage.getItem('theme');
-          var dark = localStorage.getItem('theme') === 'dark';
+          var dark = t !== null ? t === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
           document.documentElement.classList.toggle('dark', dark);
           document.documentElement.style.colorScheme = dark ? 'dark' : 'light';
         } catch (e) {}

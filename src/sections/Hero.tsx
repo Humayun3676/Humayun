@@ -114,20 +114,26 @@ export const Hero = ({ onViewResume }: HeroProps) => {
         {/* Right Column: Image */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center order-2 mt-8 lg:mt-0">
           <motion.div
-            initial={reducedMotion ? { opacity: 1 } : { opacity: 0, scale: 0.95, filter: 'blur(6px)' }}
-            animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
-            transition={{ duration: 0.9, delay: 0.2, ease: easeTransition }}
+            initial={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 0.98 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.8, ease: easeTransition }}
             className="relative w-full max-w-[480px] lg:max-w-[540px] flex justify-center lg:justify-end"
           >
             {/* Ambient Halo Ring behind Portrait */}
             <div className="absolute -inset-2 lg:-inset-4 rounded-3xl bg-gradient-to-tr from-primary/30 via-blue-500/20 to-indigo-500/30 blur-2xl opacity-60 dark:opacity-75 pointer-events-none"></div>
 
             <div className="relative rounded-2xl overflow-hidden border border-white/60 dark:border-slate-700/60 shadow-2xl">
-              <img
-                src="/humayun.jpg"
-                alt="Humayun Mirza"
-                className="w-full h-auto max-h-[640px] object-cover object-top rounded-2xl transition-transform duration-700 hover:scale-[1.02]"
-              />
+              <picture>
+                <source srcSet="/humayun-mirza-software-engineer.webp" type="image/webp" />
+                <img
+                  src="/humayun.jpg"
+                  alt="Humayun Mirza, Software Engineer & AI/ML Developer from Sialkot, Pakistan"
+                  width={681}
+                  height={1024}
+                  fetchPriority="high"
+                  className="w-full h-auto max-h-[640px] object-cover object-top rounded-2xl transition-transform duration-700 hover:scale-[1.02]"
+                />
+              </picture>
               {/* Subtle vignette blend at bottom */}
               <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>

@@ -93,11 +93,16 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
 
           <a href="/" className="relative group">
             <div className="w-8 h-8 md:w-10 md:h-10 rounded-full p-[2px] border border-slate-200 dark:border-slate-700 group-hover:border-primary dark:group-hover:border-primary transition-all duration-300 group-hover:scale-105">
-              <img 
-                src="/profile.png" 
-                alt="Humayun Mirza" 
-                className="w-full h-full rounded-full object-cover grayscale contrast-125"
-              />
+              <picture>
+                <source srcSet="/profile-nav.webp" type="image/webp" />
+                <img 
+                  src="/profile.png" 
+                  alt="Humayun Mirza" 
+                  width={40}
+                  height={40}
+                  className="w-full h-full rounded-full object-cover grayscale contrast-125"
+                />
+              </picture>
             </div>
           </a>
         </div>
