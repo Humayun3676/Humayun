@@ -44,23 +44,131 @@
     <meta name="twitter:image" content="https://humayun-pearl.vercel.app/og-image.png" />
     <meta name="twitter:image:alt" content="Humayun Mirza - Software Engineer &amp; AI/ML Developer from Sialkot, Pakistan" />
 
-    <!-- GEO / Person Structured Data Baseline -->
+    <!-- Comprehensive Schema.org JSON-LD Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Humayun Mirza",
-      "jobTitle": "Software and AI Engineer",
-      "url": "https://humayun-pearl.vercel.app/",
-      "sameAs": [
-        "https://github.com/humayun3676"
-      ],
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Sialkot",
-        "addressCountry": "Pakistan"
-      },
-      "knowsAbout": ["Software Engineering", "Artificial Intelligence", "Machine Learning", "React", "Python"]
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://humayun-pearl.vercel.app/#website",
+          "url": "https://humayun-pearl.vercel.app/",
+          "name": "Humayun Mirza",
+          "alternateName": "HumayunMirza",
+          "description": "Humayun Mirza is a Software Engineer and AI/ML Developer from Sialkot, Pakistan, building intelligent systems in machine learning and computer vision.",
+          "publisher": {
+            "@id": "https://humayun-pearl.vercel.app/#person"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "ProfilePage",
+          "@id": "https://humayun-pearl.vercel.app/#profilepage",
+          "url": "https://humayun-pearl.vercel.app/",
+          "name": "Humayun Mirza | Software Engineer & AI/ML Developer, Sialkot",
+          "isPartOf": {
+            "@id": "https://humayun-pearl.vercel.app/#website"
+          },
+          "about": {
+            "@id": "https://humayun-pearl.vercel.app/#person"
+          },
+          "mainEntity": {
+            "@id": "https://humayun-pearl.vercel.app/#person"
+          },
+          "inLanguage": "en-US"
+        },
+        {
+          "@type": "Person",
+          "@id": "https://humayun-pearl.vercel.app/#person",
+          "name": "Humayun Mirza",
+          "alternateName": ["HumayunMirza"],
+          "jobTitle": "Software Engineer",
+          "url": "https://humayun-pearl.vercel.app/",
+          "image": {
+            "@type": "ImageObject",
+            "@id": "https://humayun-pearl.vercel.app/#image",
+            "url": "https://humayun-pearl.vercel.app/humayun-mirza-software-engineer.webp",
+            "caption": "Humayun Mirza, Software Engineer & AI/ML Developer from Sialkot, Pakistan"
+          },
+          "description": "Building practical software and exploring intelligent systems through artificial intelligence, machine learning, computer vision, and modern software engineering.",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Sialkot",
+            "addressRegion": "Punjab",
+            "addressCountry": "Pakistan"
+          },
+          "homeLocation": {
+            "@type": "Place",
+            "name": "Sialkot, Punjab, Pakistan"
+          },
+          "alumniOf": [
+            {
+              "@type": "CollegeOrUniversity",
+              "name": "University of Sialkot",
+              "sameAs": "https://www.uskt.edu.pk/"
+            }
+          ],
+          "knowsAbout": [
+            "Artificial Intelligence",
+            "Machine Learning",
+            "Deep Learning",
+            "Computer Vision",
+            "Natural Language Processing",
+            "OpenCV",
+            "PyTorch",
+            "TensorFlow",
+            "Keras",
+            "DeepFace",
+            "Pandas",
+            "Scikit-learn",
+            "Python",
+            "React.js",
+            "TypeScript",
+            "JavaScript",
+            "C++",
+            "Software Engineering",
+            "Full-Stack Architecture"
+          ],
+          "sameAs": [
+            "https://www.linkedin.com/in/humayun3676",
+            "https://github.com/humayun3676"
+          ]
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://humayun-pearl.vercel.app/#research-asthma",
+          "name": "Asthma Prediction Using AI on Real-Time Laboratory Datasets",
+          "headline": "Asthma Prediction Using AI on Real-Time Laboratory Datasets",
+          "description": "Researching and implementing classification models to predict asthma severity using patient metric datasets.",
+          "author": {
+            "@id": "https://humayun-pearl.vercel.app/#person"
+          },
+          "about": [
+            "Machine Learning",
+            "Medical AI",
+            "Python",
+            "Scikit-learn"
+          ],
+          "inLanguage": "en"
+        },
+        {
+          "@type": "CreativeWork",
+          "@id": "https://humayun-pearl.vercel.app/#research-leather",
+          "name": "Leather Defect Classification on Real-Time Leather Industrial Datasets",
+          "headline": "Leather Defect Classification on Real-Time Leather Industrial Datasets",
+          "description": "Exploring deep learning techniques for automated quality control and defect classification in industrial leather manufacturing.",
+          "author": {
+            "@id": "https://humayun-pearl.vercel.app/#person"
+          },
+          "about": [
+            "Computer Vision",
+            "Deep Learning",
+            "Python",
+            "Quality Control"
+          ],
+          "inLanguage": "en"
+        }
+      ]
     }
     </script>
 
