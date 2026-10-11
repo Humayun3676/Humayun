@@ -1,6 +1,8 @@
-import { motion } from 'framer-motion';
 import { FolderGit2, Star } from 'lucide-react';
 import { PROJECTS_DATA } from '../data/projects';
+import { SectionHeader } from '../components/SectionHeader';
+import { InteractiveCard } from '../components/InteractiveCard';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export const Projects = () => {
   return (
@@ -8,61 +10,51 @@ export const Projects = () => {
       <div className="max-w-[1440px] w-full mx-auto">
         
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4 tracking-tight">Featured Projects</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
-          <p className="text-gray-600 dark:text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
-            A showcase of my technical journey, from core programming fundamentals to advanced artificial intelligence and full-stack applications.
-          </p>
-        </motion.div>
+        <SectionHeader 
+          eyebrow="03 — Featured Projects"
+          title="Featured Projects"
+          description="A showcase of my technical journey, from core programming fundamentals to advanced artificial intelligence and full-stack applications."
+        />
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS_DATA.map((project, index) => (
-            <motion.div
-              key={project.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-2xl shadow-soft ${project.featured ? 'ring-2 ring-primary ring-offset-2 ring-offset-slate-50 dark:ring-offset-slate-900' : ''} p-8 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group flex flex-col h-full relative overflow-hidden`}
-            >
-              {/* Top Row: Icon & Featured Star */}
-              <div className="flex justify-between items-start mb-6">
-                <div className="p-3 bg-blue-50 text-primary rounded-xl group-hover:bg-primary group-hover:text-white transition-colors">
-                  <FolderGit2 className="w-6 h-6" />
-                </div>
-                {project.featured && (
-                  <div className="flex items-center gap-1 bg-blue-50 px-3 py-1 rounded-full text-primary">
-                    <Star className="w-3 h-3 fill-primary" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider">Featured</span>
+            <ScrollReveal key={project.id} delay={index * 0.08}>
+              <InteractiveCard isFeatured={project.featured} className="p-8 h-full">
+                {/* Top Row: Icon & Featured Star */}
+                <div className="flex justify-between items-start mb-6">
+                  <div className="p-3 bg-blue-50 dark:bg-blue-950/60 text-primary rounded-xl group-hover:bg-primary group-hover:text-white transition-colors duration-300 border border-blue-100 dark:border-blue-900/40">
+                    <FolderGit2 className="w-6 h-6" />
                   </div>
-                )}
-              </div>
-              
-              <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-2 group-hover:text-primary transition-colors duration-300">
-                {project.title}
-              </h3>
-              
-              <p className="text-gray-600 dark:text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
-                {project.description}
-              </p>
+                  {project.featured && (
+                    <div className="flex items-center gap-1.5 bg-blue-50 dark:bg-blue-950/70 border border-blue-200/60 dark:border-blue-800/60 px-3 py-1 rounded-full text-primary dark:text-blue-400">
+                      <Star className="w-3.5 h-3.5 fill-primary dark:fill-blue-400" />
+                      <span className="text-[10px] font-bold uppercase tracking-wider">Featured</span>
+                    </div>
+                  )}
+                </div>
+                
+                <h3 className="text-xl font-bold text-gray-900 dark:text-slate-100 mb-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                  {project.title}
+                </h3>
+                
+                <p className="text-gray-600 dark:text-slate-400 text-sm mb-6 flex-grow leading-relaxed">
+                  {project.description}
+                </p>
 
-              {/* Technologies Tags */}
-              <div className="mt-auto pt-6 border-t border-gray-100 dark:border-slate-700 flex flex-wrap gap-2">
-                {project.technologies.map((tech, idx) => (
-                  <span key={idx} className="px-3 py-1 bg-gray-100 dark:bg-slate-700 rounded-lg text-xs text-gray-600 dark:text-slate-300 font-medium">
-                    {tech}
-                  </span>
-                ))}
-              </div>
-            </motion.div>
+                {/* Technologies Tags */}
+                <div className="mt-auto pt-6 border-t border-gray-100 dark:border-slate-700/80 flex flex-wrap gap-2">
+                  {project.technologies.map((tech, idx) => (
+                    <span 
+                      key={idx} 
+                      className="px-2.5 py-1 bg-slate-100/90 dark:bg-slate-700/60 rounded-md text-xs text-gray-700 dark:text-slate-300 font-medium hover:text-primary dark:hover:text-blue-400 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </InteractiveCard>
+            </ScrollReveal>
           ))}
         </div>
 
