@@ -4,6 +4,7 @@ import { Resume } from './pages/Resume';
 import { ArrowLeft, Download, FileText } from 'lucide-react';
 import { Routes, Route } from 'react-router-dom';
 import { NotFound } from './pages/NotFound';
+import { MagneticButton } from './components/MagneticButton';
 
 function AppContent() {
   const [viewResume, setViewResume] = useState(false);
@@ -47,12 +48,16 @@ function AppContent() {
       <Home onViewResume={() => setViewResume(true)} />
 
       {/* Floating Preview Resume Button */}
-      <button 
-        onClick={() => setViewResume(true)}
-        className="fixed bottom-6 right-6 z-50 px-4 py-2 bg-primary text-white rounded-full shadow-neon flex items-center gap-2 hover:bg-primary-hover transition-all font-medium text-sm group"
-      >
-        <FileText size={16} className="group-hover:scale-110 transition-transform" /> Preview Resume
-      </button>
+      <div className="fixed bottom-6 right-6 z-50">
+        <MagneticButton strength={0.2}>
+          <button 
+            onClick={() => setViewResume(true)}
+            className="px-4 py-2.5 bg-primary text-white rounded-full shadow-[0_10px_25px_-5px_rgba(37,99,235,0.4)] hover:shadow-[0_15px_30px_-5px_rgba(37,99,235,0.6)] flex items-center gap-2 hover:bg-primary-hover transition-all font-semibold text-sm group"
+          >
+            <FileText size={16} className="group-hover:scale-110 transition-transform duration-300" /> Preview Resume
+          </button>
+        </MagneticButton>
+      </div>
     </div>
   );
 }
