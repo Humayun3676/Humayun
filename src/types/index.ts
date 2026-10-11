@@ -50,6 +50,9 @@ export interface Certification {
   credentialId?: string;
   credentialUrl?: string;
   featured: boolean;
+  imagePath?: string;
+  fileName?: string;
+  logo?: string;
 }
 
 export interface Research {

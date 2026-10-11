@@ -1,56 +1,109 @@
-import { motion } from 'framer-motion';
-import { Award } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
+import { Award, X } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../data/certifications';
 import { CertificationGrid } from '../components/CertificationGrid';
+import { SectionHeader } from '../components/SectionHeader';
+import { InteractiveCard } from '../components/InteractiveCard';
+import { ScrollReveal } from '../components/ScrollReveal';
 
 export const Certifications = () => {
+  const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setSelectedCertificate(null);
+      }
+    };
+
+    if (selectedCertificate) {
+      window.addEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = 'hidden';
+    }
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      document.body.style.overflow = '';
+    };
+  }, [selectedCertificate]);
+
+  const getCategoryBadgeClass = (category: string) => {
+    switch (category) {
+      case 'AI / ML':
+        return 'text-purple-600 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 border-purple-200/50 dark:border-purple-800/40';
+      case 'Programming':
+        return 'text-blue-600 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border-blue-200/50 dark:border-blue-800/40';
+      case 'Software Engineering':
+        return 'text-cyan-600 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border-cyan-200/50 dark:border-cyan-800/40';
+      case 'Testing & Automation':
+        return 'text-emerald-600 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200/50 dark:border-emerald-800/40';
+      case 'Leadership':
+        return 'text-amber-600 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border-amber-200/50 dark:border-amber-800/40';
+      default:
+        return 'text-primary dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border-blue-200/50 dark:border-blue-800/40';
+    }
+  };
+
   return (
     <section id="certifications" className="scroll-mt-24 lg:scroll-mt-0 py-12 lg:py-24 px-4 lg:px-6 relative bg-[#EFEFEF] dark:bg-slate-900 transition-colors duration-300">
       <div className="max-w-[1440px] w-full mx-auto">
         
         {/* Section Header */}
-        <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-slate-100 mb-4 tracking-tight">Certification Vault</h2>
-          <div className="w-16 h-1 bg-primary mx-auto rounded-full mb-8"></div>
-          <p className="text-gray-600 dark:text-slate-300 max-w-2xl mx-auto text-base md:text-lg">
-            A verified archive of my professional credentials, continuous learning, and specialized training in software engineering and artificial intelligence.
-          </p>
-        </motion.div>
+        <SectionHeader 
+          eyebrow="06 — Credentials"
+          title="Certification Vault"
+          description="A verified archive of my professional credentials, continuous learning, and specialized training in software engineering and artificial intelligence."
+        />
 
         {/* Certifications Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {CERTIFICATIONS_DATA.map((cert, index) => (
-            <motion.div
-              key={cert.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              className={`bg-white dark:bg-slate-800 dark:border dark:border-slate-700 rounded-2xl shadow-soft ${cert.featured ? 'ring-2 ring-primary ring-offset-2 ring-offset-background' : ''} p-6 hover:-translate-y-2 hover:shadow-lg transition-all duration-300 group flex flex-col h-full relative`}
-            >
-              <div className="flex justify-between items-start mb-4">
-                <div className="p-2 bg-blue-50 rounded-lg group-hover:bg-primary transition-colors">
-                  <Award className="text-primary group-hover:text-white w-6 h-6 transition-colors" />
+            <ScrollReveal key={cert.id} delay={index * 0.05}>
+              <InteractiveCard
+                isFeatured={cert.featured}
+                onClick={() => setSelectedCertificate(cert.imagePath || `/certificates/${cert.fileName}`)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    setSelectedCertificate(cert.imagePath || `/certificates/${cert.fileName}`);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View certificate: ${cert.title}`}
+                className="p-6 cursor-pointer h-full"
+              >
+                <div className="flex justify-between items-start mb-4">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 bg-blue-50 dark:bg-slate-700/60 rounded-lg group-hover:bg-primary transition-colors group-hover:rotate-6 duration-300">
+                      <Award className="text-primary group-hover:text-white w-6 h-6 transition-colors" />
+                    </div>
+                    {cert.logo && (
+                      <div className="bg-white/95 dark:bg-white/90 p-0.5 rounded-sm flex items-center justify-center shadow-xs">
+                        <img
+                          src={cert.logo}
+                          alt={`${cert.issuer} logo`}
+                          className="h-6 w-auto max-w-[48px] object-contain dark:brightness-100 dark:contrast-125"
+                          loading="lazy"
+                        />
+                      </div>
+                    )}
+                  </div>
+                  <span className={`text-[11px] font-bold px-2.5 py-1 rounded-full border ${getCategoryBadgeClass(cert.category)}`}>
+                    {cert.category}
+                  </span>
                 </div>
-                <span className="text-xs font-bold text-primary bg-blue-50 px-3 py-1 rounded-full">
-                  {cert.category}
-                </span>
-              </div>
-              
-              <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-2 group-hover:text-primary transition-colors duration-300">
-                {cert.title}
-              </h3>
-              
-              <p className="text-gray-600 dark:text-slate-400 text-sm flex-grow">
-                Issued by <span className="text-gray-900 dark:text-slate-200 font-medium">{cert.issuer}</span>
-              </p>
-            </motion.div>
+                
+                <h3 className="text-lg font-bold text-gray-900 dark:text-slate-100 mb-2 group-hover:text-primary transition-colors duration-300 tracking-tight">
+                  {cert.title}
+                </h3>
+                
+                <p className="text-gray-600 dark:text-slate-400 text-sm flex-grow">
+                  Issued by <span className="text-gray-900 dark:text-slate-200 font-medium">{cert.issuer}</span>
+                </p>
+              </InteractiveCard>
+            </ScrollReveal>
           ))}
         </div>
 
@@ -58,6 +111,42 @@ export const Certifications = () => {
         <CertificationGrid />
 
       </div>
+
+      {/* Modal Overlay Component */}
+      {selectedCertificate && typeof document !== 'undefined' &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-md p-4 animate-fadeIn"
+            onClick={() => setSelectedCertificate(null)}
+            onKeyDown={(e) => {
+              if (e.key === 'Escape') setSelectedCertificate(null);
+            }}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Certificate preview"
+            tabIndex={-1}
+          >
+            <div
+              className="relative max-w-4xl w-full bg-white dark:bg-slate-900 p-2 rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 max-h-[90vh] flex flex-col items-center"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <button
+                type="button"
+                onClick={() => setSelectedCertificate(null)}
+                className="absolute top-4 right-4 bg-slate-800/80 hover:bg-slate-700/80 text-white p-2 rounded-full z-10 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-white"
+                aria-label="Close modal"
+              >
+                <X className="w-5 h-5" />
+              </button>
+              <img
+                src={selectedCertificate}
+                alt="Certificate"
+                className="w-auto max-h-[82vh] object-contain rounded"
+              />
+            </div>
+          </div>,
+          document.body
+        )}
     </section>
   );
 };

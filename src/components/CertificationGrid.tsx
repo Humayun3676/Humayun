@@ -1,7 +1,8 @@
 export const CertificationGrid = () => {
   const certs = [
-    { name: 'IBM', logo: '/logos/ibm.png' },
+    { name: 'IBM', logo: '/logos/ibm.png', darkInvert: true },
     { name: 'DeepLearning.AI', logo: '/logos/deeplearning.png' },
+    { name: 'Coursera', logo: '/logos/coursera.svg' },
     { name: 'Google', logo: '/logos/google.png' },
     { name: 'University of Michigan', logo: '/logos/michigan.png' },
     { name: 'IEEE', logo: '/logos/ieee.png' },
@@ -19,49 +20,56 @@ export const CertificationGrid = () => {
     { name: 'United Nations', logo: '/logos/uncc.png' },
     { name: 'Sololearn', logo: '/logos/sololearn.png' },
     { name: 'HP', logo: '/logos/hp.png' },
-    
   ];
 
   const duplicatedCerts = [...certs, ...certs, ...certs];
 
   return (
-    <div className="py-12 overflow-hidden relative w-full bg-[#EFEFEF]">
-      {/* Inline keyframes style so it guarantees scrolling without tailwind config dependency */}
+    <div className="py-14 overflow-hidden relative w-full bg-[#EFEFEF] dark:bg-slate-900 transition-colors duration-300">
       <style>{`
-        @keyframes customMarquee {
-          0% { transform: translateX(0%); }
-          100% { transform: translateX(-33.333%); }
+        @keyframes marqueeInfinite {
+          0% { transform: translate3d(0, 0, 0); }
+          100% { transform: translate3d(-33.333%, 0, 0); }
         }
-        .animate-custom-marquee {
+        .animate-marquee-smooth {
           display: flex;
           width: max-content;
-          animation: customMarquee 20s linear infinite;
+          will-change: transform;
+          animation: marqueeInfinite 32s linear infinite;
         }
-        .animate-custom-marquee:hover {
+        .animate-marquee-smooth:hover {
           animation-play-state: paused;
         }
       `}</style>
 
-      <h3 className="text-center text-gray-500 mb-10 uppercase tracking-widest text-sm font-semibold">
-        Certified & Affiliated With
-      </h3>
+      <div className="text-center mb-10">
+        <h3 className="text-xs uppercase font-bold tracking-[0.25em] text-gray-500 dark:text-slate-400">
+          Certified & Affiliated With
+        </h3>
+        <div className="w-12 h-0.5 bg-primary/40 mx-auto mt-2 rounded-full" />
+      </div>
 
-      {/* Gradient Fading Edges */}
-      <div className="absolute left-0 top-0 z-10 w-24 h-full bg-gradient-to-r from-[#EFEFEF] to-transparent pointer-events-none"></div>
-      <div className="absolute right-0 top-0 z-10 w-24 h-full bg-gradient-to-l from-[#EFEFEF] to-transparent pointer-events-none"></div>
+      {/* Deep Gradient Fading Edge Masks */}
+      <div className="absolute left-0 top-0 z-20 w-28 sm:w-36 h-full bg-gradient-to-r from-[#EFEFEF] dark:from-slate-900 to-transparent pointer-events-none"></div>
+      <div className="absolute right-0 top-0 z-20 w-28 sm:w-36 h-full bg-gradient-to-l from-[#EFEFEF] dark:from-slate-900 to-transparent pointer-events-none"></div>
 
-      {/* Scrolling Track */}
-      <div className="animate-custom-marquee items-center gap-16">
+      {/* Smooth Marquee Track */}
+      <div className="animate-marquee-smooth items-center">
         {duplicatedCerts.map((cert, index) => (
           <div 
             key={`${cert.name}-${index}`} 
-            className="flex items-center justify-center transition-all duration-300 px-4"
+            className="flex items-center justify-center flex-shrink-0 px-6 sm:px-8 py-2 group cursor-pointer"
           >
-            <img 
-              src={cert.logo} 
-              alt={cert.name} 
-              className="h-16 w-auto object-contain opacity-80 hover:opacity-100 hover:scale-125 transition-all duration-300 cursor-pointer" 
-            />
+            <div className="h-14 sm:h-16 flex items-center justify-center">
+              <img 
+                src={cert.logo} 
+                alt={cert.name} 
+                loading="lazy"
+                className={`max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 ${
+                  cert.darkInvert || cert.name === 'IBM' ? 'dark:invert dark:opacity-75 group-hover:dark:opacity-100' : ''
+                }`} 
+              />
+            </div>
           </div>
         ))}
       </div>
