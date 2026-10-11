@@ -1,25 +1,25 @@
 export const CertificationGrid = () => {
   const certs = [
-    { name: 'IBM', logo: '/logos/ibm.png', darkInvert: true },
-    { name: 'DeepLearning.AI', logo: '/logos/deeplearning.png' },
+    { name: 'IBM', logo: '/logos/ibm.webp', darkInvert: true },
+    { name: 'DeepLearning.AI', logo: '/logos/deeplearning.webp' },
     { name: 'Coursera', logo: '/logos/coursera.svg' },
-    { name: 'Google', logo: '/logos/google.png' },
-    { name: 'University of Michigan', logo: '/logos/michigan.png' },
-    { name: 'IEEE', logo: '/logos/ieee.png' },
-    { name: 'DIGISKILLS', logo: '/logos/digiskills.png' },
-    { name: 'The University of Faisalabad', logo: '/logos/tuf.png' },
-    { name: 'University of California Irvine', logo: '/logos/uci.png' },
-    { name: 'LearnQuest', logo: '/logos/learnquest.png' },
-    { name: 'University of Colarado', logo: '/logos/ucolorado.png' },
-    { name: 'University of Pennsylvania', logo: '/logos/upennsylvynia.png' },
-    { name: 'VLG', logo: '/logos/vlgsialkot.png' },
-    { name: 'University of Sialkot', logo: '/logos/uskt.png' },
-    { name: 'NAVTTC', logo: '/logos/navttc.png' },
-    { name: 'National Volunteer Corps', logo: '/logos/nvc.png' },
-    { name: 'Ignite', logo: '/logos/ignite.png' },
-    { name: 'United Nations', logo: '/logos/uncc.png' },
-    { name: 'Sololearn', logo: '/logos/sololearn.png' },
-    { name: 'HP', logo: '/logos/hp.png' },
+    { name: 'Google', logo: '/logos/google.webp' },
+    { name: 'University of Michigan', logo: '/logos/michigan.webp' },
+    { name: 'IEEE', logo: '/logos/ieee.webp' },
+    { name: 'DIGISKILLS', logo: '/logos/digiskills.webp' },
+    { name: 'The University of Faisalabad', logo: '/logos/tuf.webp' },
+    { name: 'University of California Irvine', logo: '/logos/uci.webp' },
+    { name: 'LearnQuest', logo: '/logos/learnquest.webp' },
+    { name: 'University of Colarado', logo: '/logos/ucolorado.webp' },
+    { name: 'University of Pennsylvania', logo: '/logos/upennsylvynia.webp' },
+    { name: 'VLG', logo: '/logos/vlgsialkot.webp' },
+    { name: 'University of Sialkot', logo: '/logos/uskt.webp' },
+    { name: 'NAVTTC', logo: '/logos/navttc.webp' },
+    { name: 'National Volunteer Corps', logo: '/logos/nvc.webp' },
+    { name: 'Ignite', logo: '/logos/ignite.webp' },
+    { name: 'United Nations', logo: '/logos/uncc.webp' },
+    { name: 'Sololearn', logo: '/logos/sololearn.webp' },
+    { name: 'HP', logo: '/logos/hp.webp' },
   ];
 
   const duplicatedCerts = [...certs, ...certs, ...certs];
@@ -63,8 +63,11 @@ export const CertificationGrid = () => {
             <div className="h-14 sm:h-16 flex items-center justify-center">
               <img 
                 src={cert.logo} 
-                alt={cert.name} 
+                alt={`${cert.name} logo`} 
+                width={120}
+                height={48}
                 loading="lazy"
+                decoding="async"
                 className={`max-h-12 w-auto max-w-[120px] object-contain transition-all duration-300 filter grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 group-hover:scale-110 ${
                   cert.darkInvert || cert.name === 'IBM' ? 'dark:invert dark:opacity-75 group-hover:dark:opacity-100' : ''
                 }`} 

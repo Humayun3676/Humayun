@@ -84,8 +84,11 @@ export const Certifications = () => {
                         <img
                           src={cert.logo}
                           alt={`${cert.issuer} logo`}
+                          width={48}
+                          height={24}
                           className="h-6 w-auto max-w-[48px] object-contain dark:brightness-100 dark:contrast-125"
                           loading="lazy"
+                          decoding="async"
                         />
                       </div>
                     )}
@@ -136,16 +139,25 @@ export const Certifications = () => {
               <X className="w-6 h-6" />
             </button>
 
-            <div
-              className="relative w-auto h-auto max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl overflow-hidden"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <img
-                src={selectedCertificate}
-                alt="Certificate"
-                className="w-auto h-auto max-w-full max-h-[90vh] object-contain block"
-              />
-            </div>
+            {(() => {
+              const activeCert = CERTIFICATIONS_DATA.find((c) => c.imagePath === selectedCertificate);
+              const activeAlt = activeCert 
+                ? `${activeCert.issuer} certificate: ${activeCert.title}` 
+                : "Professional certification credential";
+              return (
+                <div
+                  className="relative w-auto h-auto max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl overflow-hidden"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <img
+                    src={selectedCertificate}
+                    alt={activeAlt}
+                    decoding="async"
+                    className="w-auto h-auto max-w-full max-h-[90vh] object-contain block"
+                  />
+                </div>
+              );
+            })()}
           </div>,
           document.body
         )}

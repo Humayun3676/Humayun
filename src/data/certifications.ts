@@ -8,8 +8,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "IBM",
     category: "AI / ML",
     featured: true,
-    fileName: "Introduction to Artificial Intelligence (AI).PNG",
-    imagePath: "/certificates/Introduction to Artificial Intelligence (AI).PNG",
+    fileName: "Introduction to Artificial Intelligence (AI).webp",
+    imagePath: "/certificates/Introduction to Artificial Intelligence (AI).webp",
     logo: "/logos/ibm.svg"
   },
   {
@@ -18,9 +18,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "DeepLearning.AI",
     category: "AI / ML",
     featured: true,
-    fileName: "Generative AI for Everyone.PNG",
-    imagePath: "/certificates/Generative AI for Everyone.PNG",
-    logo: "/logos/deeplearning.png"
+    fileName: "Generative AI for Everyone.webp",
+    imagePath: "/certificates/Generative AI for Everyone.webp",
+    logo: "/logos/deeplearning.webp"
   },
   {
     id: "cert-3",
@@ -28,9 +28,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "HP",
     category: "AI / ML",
     featured: true,
-    fileName: "AI For Beginners.PNG",
-    imagePath: "/certificates/AI For Beginners.PNG",
-    logo: "/logos/hp.png"
+    fileName: "AI For Beginners.webp",
+    imagePath: "/certificates/AI For Beginners.webp",
+    logo: "/logos/hp.webp"
   },
   {
     id: "cert-4",
@@ -38,8 +38,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "AI / ML",
     featured: false,
-    fileName: "Introduction to NLP  AI.PNG",
-    imagePath: "/certificates/Introduction to NLP  AI.PNG",
+    fileName: "Introduction to NLP  AI.webp",
+    imagePath: "/certificates/Introduction to NLP  AI.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -48,8 +48,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "AI / ML",
     featured: false,
-    fileName: "ChatGPT Playground Beginners.PNG",
-    imagePath: "/certificates/ChatGPT Playground Beginners.PNG",
+    fileName: "ChatGPT Playground Beginners.webp",
+    imagePath: "/certificates/ChatGPT Playground Beginners.webp",
     logo: "/logos/coursera.svg"
   },
 
@@ -60,9 +60,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "University of Colorado",
     category: "Software Engineering",
     featured: false,
-    fileName: "Software Design Methods and Tools.PNG",
-    imagePath: "/certificates/Software Design Methods and Tools.PNG",
-    logo: "/logos/ucolorado.png"
+    fileName: "Software Design Methods and Tools.webp",
+    imagePath: "/certificates/Software Design Methods and Tools.webp",
+    logo: "/logos/ucolorado.webp"
   },
   {
     id: "cert-7",
@@ -70,9 +70,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "University of Michigan",
     category: "Software Engineering",
     featured: false,
-    fileName: "Problem Solving Using Computational Thinking.PNG",
-    imagePath: "/certificates/Problem Solving Using Computational Thinking.PNG",
-    logo: "/logos/michigan.png"
+    fileName: "Problem Solving Using Computational Thinking.webp",
+    imagePath: "/certificates/Problem Solving Using Computational Thinking.webp",
+    logo: "/logos/michigan.webp"
   },
   {
     id: "cert-8",
@@ -80,9 +80,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "University of Pennsylvania",
     category: "Programming",
     featured: false,
-    fileName: "Java Certification.PNG",
-    imagePath: "/certificates/Java Certification.PNG",
-    logo: "/logos/upennsylvynia.png"
+    fileName: "Java Certification.webp",
+    imagePath: "/certificates/Java Certification.webp",
+    logo: "/logos/upennsylvynia.webp"
   },
   {
     id: "cert-9",
@@ -90,9 +90,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "LearnQuest",
     category: "Programming",
     featured: false,
-    fileName: "Introduction to Java.PNG",
-    imagePath: "/certificates/Introduction to Java.PNG",
-    logo: "/logos/learnquest.png"
+    fileName: "Introduction to Java.webp",
+    imagePath: "/certificates/Introduction to Java.webp",
+    logo: "/logos/learnquest.webp"
   },
   {
     id: "cert-10",
@@ -100,8 +100,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Programming",
     featured: false,
-    fileName: "Java for Beginners Getting Started.PNG",
-    imagePath: "/certificates/Java for Beginners Getting Started.PNG",
+    fileName: "Java for Beginners Getting Started.webp",
+    imagePath: "/certificates/Java for Beginners Getting Started.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -110,9 +110,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "SoloLearn",
     category: "Programming",
     featured: false,
-    fileName: "Introduction to Csharp.PNG",
-    imagePath: "/certificates/Introduction to Csharp.PNG",
-    logo: "/logos/sololearn.png"
+    fileName: "Introduction to Csharp.webp",
+    imagePath: "/certificates/Introduction to Csharp.webp",
+    logo: "/logos/sololearn.webp"
   },
   {
     id: "cert-12",
@@ -120,9 +120,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "SoloLearn",
     category: "Programming",
     featured: false,
-    fileName: "C++.PNG",
-    imagePath: "/certificates/C++.PNG",
-    logo: "/logos/sololearn.png"
+    fileName: "C++.webp",
+    imagePath: "/certificates/C++.webp",
+    logo: "/logos/sololearn.webp"
   },
 
   // --- Automation & Testing ---
@@ -132,8 +132,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Testing & Automation",
     featured: false,
-    fileName: "Automation Scripting Using Selenium.PNG",
-    imagePath: "/certificates/Automation Scripting Using Selenium.PNG",
+    fileName: "Automation Scripting Using Selenium.webp",
+    imagePath: "/certificates/Automation Scripting Using Selenium.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -142,8 +142,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Testing & Automation",
     featured: false,
-    fileName: "Cypress UI Automation Testing for Absolute Beginners.PNG",
-    imagePath: "/certificates/Cypress UI Automation Testing for Absolute Beginners.PNG",
+    fileName: "Cypress UI Automation Testing for Absolute Beginners.webp",
+    imagePath: "/certificates/Cypress UI Automation Testing for Absolute Beginners.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -152,8 +152,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Testing & Automation",
     featured: false,
-    fileName: "Wireshark for Beginners.PNG",
-    imagePath: "/certificates/Wireshark for Beginners.PNG",
+    fileName: "Wireshark for Beginners.webp",
+    imagePath: "/certificates/Wireshark for Beginners.webp",
     logo: "/logos/coursera.svg"
   },
 
@@ -164,9 +164,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "DigiSkills Training Program",
     category: "Freelancing",
     featured: false,
-    fileName: "Freelancing.PNG",
-    imagePath: "/certificates/Freelancing.PNG",
-    logo: "/logos/digiskills.png"
+    fileName: "Freelancing.webp",
+    imagePath: "/certificates/Freelancing.webp",
+    logo: "/logos/digiskills.webp"
   },
   {
     id: "cert-17",
@@ -174,8 +174,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Freelancing",
     featured: false,
-    fileName: "Getting Started With Fiverr for Freelancers.PNG",
-    imagePath: "/certificates/Getting Started With Fiverr for Freelancers.PNG",
+    fileName: "Getting Started With Fiverr for Freelancers.webp",
+    imagePath: "/certificates/Getting Started With Fiverr for Freelancers.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -184,9 +184,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "University of California",
     category: "Digital Marketing",
     featured: false,
-    fileName: "Introduction to Digital Marketing.PNG",
-    imagePath: "/certificates/Introduction to Digital Marketing.PNG",
-    logo: "/logos/uci.png"
+    fileName: "Introduction to Digital Marketing.webp",
+    imagePath: "/certificates/Introduction to Digital Marketing.webp",
+    logo: "/logos/uci.webp"
   },
 
   // --- Creative ---
@@ -196,9 +196,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "DigiSkills Training Program",
     category: "Creative",
     featured: false,
-    fileName: "Video Editing, Animation and Vlogging.PNG",
-    imagePath: "/certificates/Video Editing, Animation and Vlogging.PNG",
-    logo: "/logos/digiskills.png"
+    fileName: "Video Editing, Animation and Vlogging.webp",
+    imagePath: "/certificates/Video Editing, Animation and Vlogging.webp",
+    logo: "/logos/digiskills.webp"
   },
   {
     id: "cert-20",
@@ -206,9 +206,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "NAVTTC, Government of Pakistan",
     category: "Creative",
     featured: false,
-    fileName: "Video Editing and Graphic Designing.PNG",
-    imagePath: "/certificates/Video Editing and Graphic Designing.PNG",
-    logo: "/logos/navttc.png"
+    fileName: "Video Editing and Graphic Designing.webp",
+    imagePath: "/certificates/Video Editing and Graphic Designing.webp",
+    logo: "/logos/navttc.webp"
   },
 
   // --- Professional Development ---
@@ -218,8 +218,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Global Media Network UK",
     category: "Professional Development",
     featured: false,
-    fileName: "Personality Development Certification.PNG",
-    imagePath: "/certificates/Personality Development Certification.PNG",
+    fileName: "Personality Development Certification.webp",
+    imagePath: "/certificates/Personality Development Certification.webp",
     logo: "/logos/ugmn.svg"
   },
   {
@@ -228,8 +228,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Professional Development",
     featured: false,
-    fileName: "Create a Profile and Network on LinkedIn.PNG",
-    imagePath: "/certificates/Create a Profile and Network on LinkedIn.PNG",
+    fileName: "Create a Profile and Network on LinkedIn.webp",
+    imagePath: "/certificates/Create a Profile and Network on LinkedIn.webp",
     logo: "/logos/coursera.svg"
   },
   {
@@ -238,8 +238,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Coursera",
     category: "Professional Development",
     featured: false,
-    fileName: "Create a Resume and Cover Letter with Word.PNG",
-    imagePath: "/certificates/Create a Resume and Cover Letter with Word.PNG",
+    fileName: "Create a Resume and Cover Letter with Word.webp",
+    imagePath: "/certificates/Create a Resume and Cover Letter with Word.webp",
     logo: "/logos/coursera.svg"
   },
 
@@ -250,9 +250,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "IEEE",
     category: "Membership",
     featured: false,
-    fileName: "IEEE International Student Membership 2024.PNG",
-    imagePath: "/certificates/IEEE International Student Membership 2024.PNG",
-    logo: "/logos/ieee.png"
+    fileName: "IEEE International Student Membership 2024.webp",
+    imagePath: "/certificates/IEEE International Student Membership 2024.webp",
+    logo: "/logos/ieee.webp"
   },
   {
     id: "cert-25",
@@ -260,9 +260,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "USKT IEEE Cabinet",
     category: "Leadership",
     featured: false,
-    fileName: "IEEE Student Executive Member.PNG",
-    imagePath: "/certificates/IEEE Student Executive Member.PNG",
-    logo: "/logos/uskt.png"
+    fileName: "IEEE Student Executive Member.webp",
+    imagePath: "/certificates/IEEE Student Executive Member.webp",
+    logo: "/logos/uskt.webp"
   },
   {
     id: "cert-26",
@@ -270,9 +270,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "USKT IEEE Cabinet",
     category: "Leadership",
     featured: false,
-    fileName: "IEEE Student Lead Organizer.PNG",
-    imagePath: "/certificates/IEEE Student Lead Organizer.PNG",
-    logo: "/logos/uskt.png"
+    fileName: "IEEE Student Lead Organizer.webp",
+    imagePath: "/certificates/IEEE Student Lead Organizer.webp",
+    logo: "/logos/uskt.webp"
   },
   {
     id: "cert-27",
@@ -280,9 +280,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "United Nations",
     category: "Volunteer",
     featured: false,
-    fileName: "Become a Climate Champion.PNG",
-    imagePath: "/certificates/Become a Climate Champion.PNG",
-    logo: "/logos/uncc.png"
+    fileName: "Become a Climate Champion.webp",
+    imagePath: "/certificates/Become a Climate Champion.webp",
+    logo: "/logos/uncc.webp"
   },
   {
     id: "cert-28",
@@ -290,9 +290,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Government of Pakistan",
     category: "Volunteer",
     featured: false,
-    fileName: "National Volunteers Corps.PNG",
-    imagePath: "/certificates/National Volunteers Corps.PNG",
-    logo: "/logos/nvc.png"
+    fileName: "National Volunteers Corps.webp",
+    imagePath: "/certificates/National Volunteers Corps.webp",
+    logo: "/logos/nvc.webp"
   },
   {
     id: "cert-29",
@@ -300,9 +300,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Volunteers Leading Governance",
     category: "Leadership",
     featured: false,
-    fileName: "Social Media Lead, District Level.PNG",
-    imagePath: "/certificates/Social Media Lead, District Level.PNG",
-    logo: "/logos/vlgsialkot.png"
+    fileName: "Social Media Lead, District Level.webp",
+    imagePath: "/certificates/Social Media Lead, District Level.webp",
+    logo: "/logos/vlgsialkot.webp"
   },
   {
     id: "cert-30",
@@ -310,9 +310,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Volunteers Leading Governance",
     category: "Leadership",
     featured: false,
-    fileName: "vlg ambassador.PNG",
-    imagePath: "/certificates/vlg ambassador.PNG",
-    logo: "/logos/vlgsialkot.png"
+    fileName: "vlg ambassador.webp",
+    imagePath: "/certificates/vlg ambassador.webp",
+    logo: "/logos/vlgsialkot.webp"
   },
   {
     id: "cert-31",
@@ -320,9 +320,9 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Volunteers Leading Governance",
     category: "Volunteer",
     featured: false,
-    fileName: "Volunteer Certification.PNG",
-    imagePath: "/certificates/Volunteer Certification.PNG",
-    logo: "/logos/vlgsialkot.png"
+    fileName: "Volunteer Certification.webp",
+    imagePath: "/certificates/Volunteer Certification.webp",
+    logo: "/logos/vlgsialkot.webp"
   },
 
   // --- Achievements ---
@@ -332,8 +332,8 @@ export const CERTIFICATIONS_DATA: Certification[] = [
     issuer: "Innovative Lyallpur Event",
     category: "Achievement",
     featured: false,
-    fileName: "Speed Programming Competition — Winner.PNG",
-    imagePath: "/certificates/Speed Programming Competition — Winner.PNG",
-    logo: "/logos/tuf.png"
+    fileName: "Speed Programming Competition — Winner.webp",
+    imagePath: "/certificates/Speed Programming Competition — Winner.webp",
+    logo: "/logos/tuf.webp"
   }
 ];

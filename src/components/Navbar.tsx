@@ -97,9 +97,10 @@ export const Navbar = ({ onOpenContact }: NavbarProps) => {
                 <source srcSet="/profile-nav.webp" type="image/webp" />
                 <img 
                   src="/profile.png" 
-                  alt="Humayun Mirza" 
+                  alt="Humayun Mirza - Portrait thumbnail" 
                   width={40}
                   height={40}
+                  decoding="async"
                   className="w-full h-full rounded-full object-cover grayscale contrast-125"
                 />
               </picture>

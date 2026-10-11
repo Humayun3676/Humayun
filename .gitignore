@@ -26,3 +26,8 @@ dist-ssr
 # Secrets
 .env
 .env.*
+
+# Backups and test artifacts
+backup-assets/
+seo-verification-screenshots/
+theme-test-screenshots/
