@@ -126,22 +126,24 @@ export const Certifications = () => {
             aria-label="Certificate preview"
             tabIndex={-1}
           >
+            {/* Close button positioned on the screen backdrop */}
+            <button
+              type="button"
+              onClick={() => setSelectedCertificate(null)}
+              className="fixed top-4 right-4 bg-slate-800/80 hover:bg-slate-700/80 text-white p-2.5 rounded-full z-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="w-6 h-6" />
+            </button>
+
             <div
-              className="relative max-w-4xl w-full bg-white dark:bg-slate-900 p-2 rounded-xl shadow-2xl overflow-hidden border border-slate-200 dark:border-slate-700 max-h-[90vh] flex flex-col items-center"
+              className="relative w-auto h-auto max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl overflow-hidden"
               onClick={(e) => e.stopPropagation()}
             >
-              <button
-                type="button"
-                onClick={() => setSelectedCertificate(null)}
-                className="absolute top-4 right-4 bg-slate-800/80 hover:bg-slate-700/80 text-white p-2 rounded-full z-10 transition-colors shadow-md focus:outline-none focus:ring-2 focus:ring-white"
-                aria-label="Close modal"
-              >
-                <X className="w-5 h-5" />
-              </button>
               <img
                 src={selectedCertificate}
                 alt="Certificate"
-                className="w-auto max-h-[82vh] object-contain rounded"
+                className="w-auto h-auto max-w-full max-h-[90vh] object-contain block"
               />
             </div>
           </div>,
