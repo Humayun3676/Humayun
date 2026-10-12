@@ -1,4 +1,50 @@
 {
+  "redirects": [
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.humayunmirza.dev"
+        }
+      ],
+      "destination": "https://humayunmirza.dev/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "humayunmirza.online"
+        }
+      ],
+      "destination": "https://humayunmirza.dev/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "www.humayunmirza.online"
+        }
+      ],
+      "destination": "https://humayunmirza.dev/$1",
+      "permanent": true
+    },
+    {
+      "source": "/(.*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "humayun-pearl.vercel.app"
+        }
+      ],
+      "destination": "https://humayunmirza.dev/$1",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

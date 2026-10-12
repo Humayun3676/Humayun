@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://humayun-pearl.vercel.app/sitemap.xml
+Sitemap: https://humayunmirza.dev/sitemap.xml

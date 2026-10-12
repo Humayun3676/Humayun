@@ -5,6 +5,11 @@
 - Automated freshness guard: `npm run build` verifies snapshot parity and aborts if stale.
 - Deterministic delivery: Snapshot is injected into `#root` at build time with zero runtime Chromium overhead.
 
+### Domain Configuration & SEO
+- Primary Domain: Defaults to `https://humayunmirza.dev` in `src/config/site.ts`.
+- Environment Override: Set `VITE_SITE_URL` to easily switch the primary domain across all canonical links, Open Graph tags, JSON-LD schemas, `sitemap.xml`, and `robots.txt`.
+- Build-time Generation: `npm run build` runs `node scripts/generate-seo-files.mjs` automatically before bundling.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

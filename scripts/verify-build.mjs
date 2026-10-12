@@ -41,4 +41,38 @@ if (!rootContent.includes('Humayun Mirza')) {
   process.exit(1);
 }
 
-console.log(`[verify-build] Pre-render verification PASSED! dist/index.html has valid, complete content (${html.length} bytes, #root: ${rootContent.length} chars, <h1> confirmed).`);
+// 4. Verify no obsolete domain references in dist/index.html head / metadata
+const headMatch = html.match(/<head[\s\S]*?<\/head>/i);
+const headContent = headMatch ? headMatch[0] : '';
+const obsoleteDomains = ['vercel.app', 'humayun-pearl', 'humayunmirza.online', 'www.humayunmirza'];
+for (const domain of obsoleteDomains) {
+  if (headContent.includes(domain)) {
+    console.error(`[verify-build] FATAL: dist/index.html head contains obsolete domain "${domain}"!`);
+    process.exit(1);
+  }
+}
+
+// 5. Verify presence of required icons in dist/
+const requiredIcons = [
+  'favicon.ico',
+  'favicon-16x16.png',
+  'favicon-32x32.png',
+  'favicon-48x48.png',
+  'favicon-96x96.png',
+  'favicon-192x192.png',
+  'apple-touch-icon.png',
+  'android-chrome-192x192.png',
+  'android-chrome-512x512.png',
+  'site.webmanifest',
+  'robots.txt',
+  'sitemap.xml',
+];
+for (const icon of requiredIcons) {
+  const iconPath = path.resolve(__dirname, '..', 'dist', icon);
+  if (!fs.existsSync(iconPath)) {
+    console.error(`[verify-build] FATAL: dist/${icon} is missing!`);
+    process.exit(1);
+  }
+}
+
+console.log(`[verify-build] Pre-render and SEO verification PASSED! dist/index.html has valid content (${html.length} bytes, #root: ${rootContent.length} chars, <h1> confirmed, 0 obsolete domain hits, all ${requiredIcons.length} static assets verified).`);

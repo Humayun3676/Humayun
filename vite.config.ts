@@ -26,6 +26,13 @@ function prerenderSnapshotPlugin(): Plugin {
       // Automatically generate ISO 8601 build date for Schema.org ProfilePage dateModified
       const buildDateIso = new Date().toISOString();
       transformedHtml = transformedHtml.replace(/"dateModified":\s*"[^"]*"/, `"dateModified": "${buildDateIso}"`);
+
+      // Ensure any custom VITE_SITE_URL replaces https://humayunmirza.dev dynamically at build time
+      const customSiteUrl = process.env.VITE_SITE_URL ? process.env.VITE_SITE_URL.replace(/\/+$/, '') : null;
+      if (customSiteUrl && customSiteUrl !== 'https://humayunmirza.dev') {
+        transformedHtml = transformedHtml.replaceAll('https://humayunmirza.dev', customSiteUrl);
+      }
+
       return transformedHtml;
     }
   };
