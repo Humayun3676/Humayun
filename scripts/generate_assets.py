@@ -24,25 +24,9 @@ def generate():
         optimized_profile.save('public/profile.png', 'PNG', optimize=True)
         print("Optimized public/profile.png")
 
-        # Favicons & Touch icons
-        fav16 = profile_img.resize((16, 16), Image.Resampling.LANCZOS)
-        fav16.save('public/favicon-16x16.png', 'PNG')
-
-        fav32 = profile_img.resize((32, 32), Image.Resampling.LANCZOS)
-        fav32.save('public/favicon-32x32.png', 'PNG')
-
-        fav180 = profile_img.resize((180, 180), Image.Resampling.LANCZOS)
-        fav180.save('public/apple-touch-icon.png', 'PNG')
-
-        fav192 = profile_img.resize((192, 192), Image.Resampling.LANCZOS)
-        fav192.save('public/android-chrome-192x192.png', 'PNG')
-
-        fav512 = profile_img.resize((512, 512), Image.Resampling.LANCZOS)
-        fav512.save('public/android-chrome-512x512.png', 'PNG')
-
-        # Multi-size ICO
-        fav32.save('public/favicon.ico', format='ICO', sizes=[(16, 16), (32, 32), (48, 48)])
-        print("Generated standard favicons and favicon.ico")
+        # Favicons & Touch icons (generated via generate_favicons using centered portrait)
+        from generate_favicons import generate_favicons
+        generate_favicons()
 
     # 3. Create 1200x630 Open Graph / Twitter Card Image (og-image.png)
     og_w, og_h = 1200, 630
@@ -95,7 +79,7 @@ def generate():
 
     # URL watermark pill at bottom left
     draw.rounded_rectangle([90, 520, 450, 565], radius=10, fill=(15, 23, 42), outline=(51, 65, 85), width=1)
-    draw.text((110, 532), "humayun-pearl.vercel.app", fill=(226, 232, 240), font=font_pill)
+    draw.text((110, 532), "humayunmirza.dev", fill=(226, 232, 240), font=font_pill)
 
     # Right side: Circular or rounded portrait
     with Image.open(src_profile_path) as p_img:
