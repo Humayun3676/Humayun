@@ -99,7 +99,7 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
           </div>
         </div>
         
-        <div className="mt-12 text-center text-gray-500 dark:text-slate-500 text-xs font-medium">
+        <div className="mt-12 text-center text-gray-600 dark:text-slate-500 text-xs font-medium">
           <p>Built with curiosity, code, and continuous learning.</p>
         </div>
         </div>

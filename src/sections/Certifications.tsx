@@ -23,9 +23,9 @@ export const Certifications = () => {
       case 'Software Engineering':
         return 'text-cyan-600 dark:text-cyan-300 bg-cyan-50 dark:bg-cyan-950/60 border-cyan-200/50 dark:border-cyan-800/40';
       case 'Testing & Automation':
-        return 'text-emerald-600 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200/50 dark:border-emerald-800/40';
+        return 'text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 border-emerald-200/50 dark:border-emerald-800/40';
       case 'Leadership':
-        return 'text-amber-600 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border-amber-200/50 dark:border-amber-800/40';
+        return 'text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 border-amber-200/50 dark:border-amber-800/40';
       default:
         return 'text-primary dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 border-blue-200/50 dark:border-blue-800/40';
     }

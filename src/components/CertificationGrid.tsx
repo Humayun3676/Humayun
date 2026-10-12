@@ -43,7 +43,7 @@ export const CertificationGrid = () => {
       `}</style>
 
       <div className="text-center mb-10">
-        <h3 className="text-xs uppercase font-bold tracking-[0.25em] text-gray-500 dark:text-slate-400">
+        <h3 className="text-xs uppercase font-bold tracking-[0.25em] text-gray-600 dark:text-slate-400">
           Certified & Affiliated With
         </h3>
         <div className="w-12 h-0.5 bg-primary/40 mx-auto mt-2 rounded-full" />

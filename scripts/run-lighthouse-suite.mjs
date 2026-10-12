@@ -4,7 +4,7 @@ import fs from 'node:fs';
 function runLighthouse(url, isMobile, runIndex) {
   const outputPath = `lh-${isMobile ? 'mobile' : 'desktop'}-${runIndex}.json`;
   const presetArg = isMobile ? '' : '--preset=desktop';
-  const cmd = `npx lighthouse ${url} ${presetArg} --output=json --output-path=${outputPath} --chrome-flags="--headless --no-sandbox --disable-gpu" --quiet`;
+  const cmd = `npx lighthouse ${url} ${presetArg} --output=json --output-path=${outputPath} --max-wait-for-load=45000 --chrome-flags="--headless --no-sandbox --disable-gpu --disable-dev-shm-usage" --quiet`;
   console.log(`Running: ${cmd}`);
   execSync(cmd, { stdio: 'inherit' });
 

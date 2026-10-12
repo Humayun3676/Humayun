@@ -34,7 +34,7 @@ function extractFromHtml(htmlString) {
 
   // Extract all anchor hrefs
   const links = [];
-  const linkRegex = /<a\s+[^>]*href=["']([^"']+)["'][^>]*>/gi;
+  const linkRegex = /<a\b[^>]*?\bhref=["']([^"']*)["'][^>]*>/gi;
   while ((match = linkRegex.exec(htmlString)) !== null) {
     links.push(match[1]);
   }
@@ -47,7 +47,7 @@ function extractFromHtml(htmlString) {
     .replace(/\s+/g, ' ')
     .trim();
 
-  return { headings, links: [...new Set(links)].sort(), cleanText };
+  return { headings, allLinks: links, uniqueLinks: [...new Set(links)].sort(), cleanText };
 }
 
 async function startServer() {
@@ -153,12 +153,14 @@ async function checkFreshness() {
       process.exit(1);
     }
 
-    // 2. Compare Link Hrefs
-    const missingLinks = liveData.links.filter(l => !snapshotData.links.includes(l));
-    if (missingLinks.length > 0) {
+    // 2. Compare Link Hrefs (all links and unique destinations)
+    const missingLinks = liveData.allLinks.filter(l => !snapshotData.allLinks.includes(l));
+    const extraLinks = snapshotData.allLinks.filter(l => !liveData.allLinks.includes(l));
+    if (missingLinks.length > 0 || extraLinks.length > 0 || liveData.allLinks.length !== snapshotData.allLinks.length) {
       console.error('\n============================================================');
-      console.error('FATAL: Detected link href mismatch between live app and snapshot!');
-      console.error('Missing in snapshot:', missingLinks);
+      console.error('FATAL: Detected link mismatch between live app and snapshot!');
+      console.error('Live app links:', liveData.allLinks);
+      console.error('Snapshot links:', snapshotData.allLinks);
       console.error('Snapshot is stale, run npm run snapshot');
       console.error('============================================================\n');
       process.exit(1);
@@ -175,7 +177,8 @@ async function checkFreshness() {
       process.exit(1);
     }
 
-    console.log(`[snapshot-guard] PASSED: All ${liveData.headings.length} headings, ${liveData.links.length} links, and visible text match perfectly.`);
+    console.log(`[snapshot-guard] PASSED: All ${liveData.headings.length} headings, ${liveData.allLinks.length} links (${liveData.uniqueLinks.length} unique destinations), and visible text match perfectly.`);
+    console.log(`[snapshot-guard] Verified links: ${JSON.stringify(liveData.allLinks)}`);
   } catch (err) {
     if (browser) await browser.close();
     server.close();
