@@ -2,8 +2,8 @@
 
 ### Pre-render Snapshot Workflow
 - Generate fresh snapshot: `npm run snapshot` (re-renders DOM to `src/prerender-snapshot.html`).
-- Automated freshness guard: `npm run build` verifies snapshot parity and aborts if stale.
-- Deterministic delivery: Snapshot is injected into `#root` at build time with zero runtime Chromium overhead.
+- Automated freshness guard: `npm run build:check` verifies snapshot parity and aborts if stale.
+- Deterministic delivery: Snapshot is injected into `#root` at build time (`npm run build`) with zero runtime Chromium overhead on Vercel.
 
 ### Domain Configuration & SEO
 - Primary Domain: Defaults to `https://humayunmirza.dev` in `src/config/site.ts`.
