@@ -21,7 +21,12 @@ function prerenderSnapshotPlugin(): Plugin {
         );
       }
       console.log(`[prerender] Injected verified snapshot (${snapshot.length} chars) into dist/index.html`);
-      return html.replace('<div id="root"></div>', `<div id="root">${snapshot}</div>`);
+      let transformedHtml = html.replace('<div id="root"></div>', `<div id="root">${snapshot}</div>`);
+      
+      // Automatically generate ISO 8601 build date for Schema.org ProfilePage dateModified
+      const buildDateIso = new Date().toISOString();
+      transformedHtml = transformedHtml.replace(/"dateModified":\s*"[^"]*"/, `"dateModified": "${buildDateIso}"`);
+      return transformedHtml;
     }
   };
 }
@@ -29,4 +34,25 @@ function prerenderSnapshotPlugin(): Plugin {
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), prerenderSnapshotPlugin()],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (
+            id.includes('node_modules/react/') ||
+            id.includes('node_modules/react-dom/') ||
+            id.includes('node_modules/react-router-dom/')
+          ) {
+            return 'vendor-react';
+          }
+          if (id.includes('node_modules/framer-motion/')) {
+            return 'vendor-motion';
+          }
+          if (id.includes('node_modules/lucide-react/')) {
+            return 'vendor-lucide';
+          }
+        }
+      }
+    }
+  }
 })

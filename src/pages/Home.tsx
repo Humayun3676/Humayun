@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Navbar } from '../components/Navbar';
 import { Hero } from '../sections/Hero';
 import { About } from '../sections/About';
@@ -8,9 +8,14 @@ import { Research } from '../sections/Research';
 import { Experience } from '../sections/Experience';
 import { Certifications } from '../sections/Certifications';
 import { Footer } from '../components/Footer';
-import { ContactModal } from '../components/ContactModal';
 import { ScrollProgressBar } from '../components/ScrollProgressBar';
-import { CustomCursor } from '../components/CustomCursor';
+
+const ContactModal = lazy(() =>
+  import('../components/ContactModal').then((m) => ({ default: m.ContactModal }))
+);
+const CustomCursor = lazy(() =>
+  import('../components/CustomCursor').then((m) => ({ default: m.CustomCursor }))
+);
 
 interface HomeProps {
   onViewResume: () => void;
@@ -22,7 +27,9 @@ export const Home = ({ onViewResume }: HomeProps) => {
   return (
     <div className="bg-[#EFEFEF] dark:bg-slate-900 min-h-screen text-text-main dark:text-slate-200 font-sans flex flex-col lg:flex-row w-full overflow-x-hidden transition-colors duration-300 relative">
       <ScrollProgressBar />
-      <CustomCursor />
+      <Suspense fallback={null}>
+        <CustomCursor />
+      </Suspense>
 
       {/* Subtle Noise Texture Overlay */}
       <div className="bg-noise fixed inset-0 pointer-events-none z-40 opacity-40 mix-blend-overlay" />
@@ -47,10 +54,14 @@ export const Home = ({ onViewResume }: HomeProps) => {
         <Footer onOpenContact={() => setIsContactOpen(true)} />
       </div>
       
-      <ContactModal 
-        isOpen={isContactOpen} 
-        onClose={() => setIsContactOpen(false)} 
-      />
+      {isContactOpen && (
+        <Suspense fallback={null}>
+          <ContactModal 
+            isOpen={isContactOpen} 
+            onClose={() => setIsContactOpen(false)} 
+          />
+        </Suspense>
+      )}
     </div>
   );
 };

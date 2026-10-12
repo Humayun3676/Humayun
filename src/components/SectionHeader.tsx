@@ -13,7 +13,7 @@ export const SectionHeader = ({ eyebrow, title, description, className = '' }: S
 
   return (
     <motion.div
-      initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+      initial={false}
       whileInView={reducedMotion ? { opacity: 1 } : { opacity: 1, y: 0 }}
       viewport={{ once: true, margin: '-80px' }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
@@ -31,7 +31,7 @@ export const SectionHeader = ({ eyebrow, title, description, className = '' }: S
       </h2>
 
       <motion.div
-        initial={reducedMotion ? { scaleX: 1, opacity: 1 } : { scaleX: 0, opacity: 0 }}
+        initial={false}
         whileInView={{ scaleX: 1, opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.7, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}

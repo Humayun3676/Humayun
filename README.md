@@ -1,5 +1,10 @@
 # React + TypeScript + Vite
 
+### Pre-render Snapshot Workflow
+- Generate fresh snapshot: `npm run snapshot` (re-renders DOM to `src/prerender-snapshot.html`).
+- Automated freshness guard: `npm run build` verifies snapshot parity and aborts if stale.
+- Deterministic delivery: Snapshot is injected into `#root` at build time with zero runtime Chromium overhead.
+
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
 Currently, two official plugins are available:

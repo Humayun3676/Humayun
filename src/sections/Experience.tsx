@@ -4,10 +4,8 @@ import { EXPERIENCE_HISTORY } from '../data/experience';
 import { EDUCATION_HISTORY } from '../data/education';
 import { SectionHeader } from '../components/SectionHeader';
 import { InteractiveCard } from '../components/InteractiveCard';
-import { useReducedMotion } from '../hooks/useReducedMotion';
 
 export const Experience = () => {
-  const reducedMotion = useReducedMotion();
   const easeTransition = [0.22, 1, 0.36, 1] as const;
 
   return (
@@ -38,7 +36,7 @@ export const Experience = () => {
               {/* Vertical Animated Line */}
               <div className="absolute left-0 top-3 bottom-3 w-[2px] bg-slate-200 dark:bg-slate-700/80" />
               <motion.div 
-                initial={reducedMotion ? { scaleY: 1 } : { scaleY: 0 }}
+                initial={false}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: easeTransition }}
@@ -48,7 +46,7 @@ export const Experience = () => {
               {EXPERIENCE_HISTORY.map((exp, index) => (
                 <motion.div 
                   key={exp.id}
-                  initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: -24, filter: 'blur(4px)' }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: easeTransition }}
@@ -103,7 +101,7 @@ export const Experience = () => {
               {/* Vertical Animated Line */}
               <div className="absolute left-0 top-3 bottom-3 w-[2px] bg-slate-200 dark:bg-slate-700/80" />
               <motion.div 
-                initial={reducedMotion ? { scaleY: 1 } : { scaleY: 0 }}
+                initial={false}
                 whileInView={{ scaleY: 1 }}
                 viewport={{ once: true }}
                 transition={{ duration: 1.2, ease: easeTransition }}
@@ -113,7 +111,7 @@ export const Experience = () => {
               {EDUCATION_HISTORY.map((edu, index) => (
                 <motion.div 
                   key={edu.id}
-                  initial={reducedMotion ? { opacity: 1 } : { opacity: 0, x: 24, filter: 'blur(4px)' }}
+                  initial={false}
                   whileInView={{ opacity: 1, x: 0, filter: 'blur(0px)' }}
                   viewport={{ once: true, margin: "-40px" }}
                   transition={{ duration: 0.6, delay: index * 0.1, ease: easeTransition }}

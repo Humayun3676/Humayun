@@ -16,7 +16,7 @@ export const Footer = ({ onOpenContact }: FooterProps) => {
       <div className="max-w-[1440px] mx-auto w-full">
         <div className="max-w-4xl mx-auto text-center relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={false}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: '-50px' }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}

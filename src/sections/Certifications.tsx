@@ -1,32 +1,18 @@
-import { useState, useEffect } from 'react';
-import { createPortal } from 'react-dom';
-import { Award, X } from 'lucide-react';
+import { useState, lazy, Suspense } from 'react';
+import { Award } from 'lucide-react';
 import { CERTIFICATIONS_DATA } from '../data/certifications';
 import { CertificationGrid } from '../components/CertificationGrid';
 import { SectionHeader } from '../components/SectionHeader';
 import { InteractiveCard } from '../components/InteractiveCard';
 import { ScrollReveal } from '../components/ScrollReveal';
 
+const CertificateModal = lazy(() =>
+  import('../components/CertificateModal').then((m) => ({ default: m.CertificateModal }))
+);
+
 export const Certifications = () => {
   const [selectedCertificate, setSelectedCertificate] = useState<string | null>(null);
 
-  useEffect(() => {
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') {
-        setSelectedCertificate(null);
-      }
-    };
-
-    if (selectedCertificate) {
-      window.addEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'hidden';
-    }
-
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = '';
-    };
-  }, [selectedCertificate]);
 
   const getCategoryBadgeClass = (category: string) => {
     switch (category) {
@@ -71,7 +57,6 @@ export const Certifications = () => {
                 }}
                 tabIndex={0}
                 role="button"
-                aria-label={`View certificate: ${cert.title}`}
                 className="p-6 cursor-pointer h-full"
               >
                 <div className="flex justify-between items-start mb-4">
@@ -115,52 +100,15 @@ export const Certifications = () => {
 
       </div>
 
-      {/* Modal Overlay Component */}
-      {selectedCertificate && typeof document !== 'undefined' &&
-        createPortal(
-          <div
-            className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/80 backdrop-blur-md p-4 animate-fadeIn"
-            onClick={() => setSelectedCertificate(null)}
-            onKeyDown={(e) => {
-              if (e.key === 'Escape') setSelectedCertificate(null);
-            }}
-            role="dialog"
-            aria-modal="true"
-            aria-label="Certificate preview"
-            tabIndex={-1}
-          >
-            {/* Close button positioned on the screen backdrop */}
-            <button
-              type="button"
-              onClick={() => setSelectedCertificate(null)}
-              className="fixed top-4 right-4 bg-slate-800/80 hover:bg-slate-700/80 text-white p-2.5 rounded-full z-50 transition-colors shadow-lg focus:outline-none focus:ring-2 focus:ring-white cursor-pointer"
-              aria-label="Close modal"
-            >
-              <X className="w-6 h-6" />
-            </button>
-
-            {(() => {
-              const activeCert = CERTIFICATIONS_DATA.find((c) => c.imagePath === selectedCertificate);
-              const activeAlt = activeCert 
-                ? `${activeCert.issuer} certificate: ${activeCert.title}` 
-                : "Professional certification credential";
-              return (
-                <div
-                  className="relative w-auto h-auto max-w-[95vw] max-h-[95vh] rounded-xl shadow-2xl overflow-hidden"
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  <img
-                    src={selectedCertificate}
-                    alt={activeAlt}
-                    decoding="async"
-                    className="w-auto h-auto max-w-full max-h-[90vh] object-contain block"
-                  />
-                </div>
-              );
-            })()}
-          </div>,
-          document.body
-        )}
+      {/* Lazy-loaded Certificate Modal */}
+      {selectedCertificate && (
+        <Suspense fallback={null}>
+          <CertificateModal
+            imagePath={selectedCertificate}
+            onClose={() => setSelectedCertificate(null)}
+          />
+        </Suspense>
+      )}
     </section>
   );
 };

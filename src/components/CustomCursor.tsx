@@ -22,56 +22,83 @@ export const CustomCursor = () => {
       setEnabled(false);
       return;
     }
-    setEnabled(true);
 
-    const handleMouseMove = (e: MouseEvent) => {
-      pos.current = { x: e.clientX, y: e.clientY };
-      if (!isVisible) setIsVisible(true);
+    let cancelled = false;
+    let cleanupListeners: (() => void) | undefined;
 
-      const target = e.target as HTMLElement | null;
-      if (target) {
-        const isInteractive = Boolean(
-          target.closest('a, button, [role="button"], input, textarea, select, .interactive-target')
-        );
-        setIsHoveringInteractive(isInteractive);
-      }
-    };
+    const startCursor = () => {
+      if (cancelled) return;
+      setEnabled(true);
 
-    const handleMouseLeave = () => {
-      setIsVisible(false);
-    };
+      const handleMouseMove = (e: MouseEvent) => {
+        pos.current = { x: e.clientX, y: e.clientY };
+        if (!isVisible) setIsVisible(true);
 
-    const handleMouseEnter = () => {
-      setIsVisible(true);
-    };
+        const target = e.target as HTMLElement | null;
+        if (target) {
+          const isInteractive = Boolean(
+            target.closest('a, button, [role="button"], input, textarea, select, .interactive-target')
+          );
+          setIsHoveringInteractive(isInteractive);
+        }
+      };
 
-    window.addEventListener('mousemove', handleMouseMove, { passive: true });
-    document.addEventListener('mouseleave', handleMouseLeave);
-    document.addEventListener('mouseenter', handleMouseEnter);
+      const handleMouseLeave = () => {
+        setIsVisible(false);
+      };
 
-    // RAF loop for smooth lag / lerp on the outer ring
-    const render = () => {
-      // Lerp ring towards cursor position
-      ringPos.current.x += (pos.current.x - ringPos.current.x) * 0.18;
-      ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.18;
+      const handleMouseEnter = () => {
+        setIsVisible(true);
+      };
 
-      if (dotRef.current) {
-        dotRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
-      }
-      if (ringRef.current) {
-        ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%)`;
-      }
+      window.addEventListener('mousemove', handleMouseMove, { passive: true });
+      document.addEventListener('mouseleave', handleMouseLeave);
+      document.addEventListener('mouseenter', handleMouseEnter);
+
+      // RAF loop for smooth lag / lerp on the outer ring
+      const render = () => {
+        ringPos.current.x += (pos.current.x - ringPos.current.x) * 0.18;
+        ringPos.current.y += (pos.current.y - ringPos.current.y) * 0.18;
+
+        if (dotRef.current) {
+          dotRef.current.style.transform = `translate3d(${pos.current.x}px, ${pos.current.y}px, 0) translate(-50%, -50%)`;
+        }
+        if (ringRef.current) {
+          ringRef.current.style.transform = `translate3d(${ringPos.current.x}px, ${ringPos.current.y}px, 0) translate(-50%, -50%)`;
+        }
+
+        reqId.current = requestAnimationFrame(render);
+      };
 
       reqId.current = requestAnimationFrame(render);
+
+      cleanupListeners = () => {
+        window.removeEventListener('mousemove', handleMouseMove);
+        document.removeEventListener('mouseleave', handleMouseLeave);
+        document.removeEventListener('mouseenter', handleMouseEnter);
+        if (reqId.current) cancelAnimationFrame(reqId.current);
+      };
     };
 
-    reqId.current = requestAnimationFrame(render);
+    // Defer initialization to idle callback after first paint
+    let idleId: number | undefined;
+    let timerId: ReturnType<typeof setTimeout> | undefined;
+
+    if ('requestIdleCallback' in window) {
+      idleId = (window as Window).requestIdleCallback(startCursor, { timeout: 1000 });
+    } else {
+      timerId = setTimeout(startCursor, 400);
+    }
 
     return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      document.removeEventListener('mouseleave', handleMouseLeave);
-      document.removeEventListener('mouseenter', handleMouseEnter);
-      if (reqId.current) cancelAnimationFrame(reqId.current);
+      cancelled = true;
+      if (idleId !== undefined && 'cancelIdleCallback' in window) {
+        (window as Window).cancelIdleCallback(idleId);
+      }
+      if (timerId !== undefined) {
+        clearTimeout(timerId);
+      }
+      if (cleanupListeners) cleanupListeners();
     };
   }, [reducedMotion, isVisible]);
 

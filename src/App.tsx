@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { Home } from './pages/Home';
-import { Resume } from './pages/Resume';
 import { ArrowLeft, Download, FileText } from 'lucide-react';
 import { Routes, Route } from 'react-router-dom';
-import { NotFound } from './pages/NotFound';
 import { MagneticButton } from './components/MagneticButton';
+
+const Resume = lazy(() => import('./pages/Resume').then((m) => ({ default: m.Resume })));
+const NotFound = lazy(() => import('./pages/NotFound').then((m) => ({ default: m.NotFound })));
 
 function AppContent() {
   const [viewResume, setViewResume] = useState(false);
@@ -37,7 +38,9 @@ function AppContent() {
 
         {/* Resume Container */}
         <div className="w-full py-4 sm:py-8 px-2 sm:px-4 flex justify-center">
-          <Resume />
+          <Suspense fallback={<div className="text-center py-20 text-gray-500">Loading Resume...</div>}>
+            <Resume />
+          </Suspense>
         </div>
       </div>
     );
@@ -66,7 +69,14 @@ function App() {
   return (
     <Routes>
       <Route path="/" element={<AppContent />} />
-      <Route path="*" element={<NotFound />} />
+      <Route
+        path="*"
+        element={
+          <Suspense fallback={null}>
+            <NotFound />
+          </Suspense>
+        }
+      />
     </Routes>
   );
 }

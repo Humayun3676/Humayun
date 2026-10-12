@@ -2,15 +2,12 @@ import { motion } from 'framer-motion';
 import { ArrowRight, FileText } from 'lucide-react';
 import { HeroConstellation } from '../components/HeroConstellation';
 import { MagneticButton } from '../components/MagneticButton';
-import { useReducedMotion } from '../hooks/useReducedMotion';
 
 interface HeroProps {
   onViewResume: () => void;
 }
 
 export const Hero = ({ onViewResume }: HeroProps) => {
-  const reducedMotion = useReducedMotion();
-
   const easeTransition = [0.22, 1, 0.36, 1] as const;
 
   return (
@@ -30,7 +27,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
             
             {/* Greeting & Name */}
             <motion.div
-              initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 24, filter: 'blur(4px)' }}
+              initial={false}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.8, delay: 0.1, ease: easeTransition }}
             >
@@ -44,7 +41,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
             
             {/* Software Engineer Headline */}
             <motion.h2 
-              initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 20, filter: 'blur(4px)' }}
+              initial={false}
               animate={{ opacity: 1, y: 0, filter: 'blur(0px)' }}
               transition={{ duration: 0.8, delay: 0.25, ease: easeTransition }}
               className="text-xl md:text-3xl font-extrabold text-gray-700 dark:text-slate-300 tracking-wider mb-6 flex items-center justify-center lg:justify-start gap-3"
@@ -54,7 +51,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
 
             {/* Role highlight pill line */}
             <motion.div 
-              initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.35, ease: easeTransition }}
               className="inline-flex flex-wrap items-center justify-center lg:justify-start gap-1.5 text-gray-500 dark:text-slate-400 text-xs md:text-sm tracking-widest uppercase mb-8 font-semibold"
@@ -72,7 +69,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
 
             {/* Paragraph description */}
             <motion.p 
-              initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 15 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.45, ease: easeTransition }}
               className="text-gray-600 dark:text-slate-300 mb-10 leading-relaxed text-base md:text-lg"
@@ -82,7 +79,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
             
             {/* CTA Buttons */}
             <motion.div 
-              initial={reducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }}
+              initial={false}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.55, ease: easeTransition }}
               className="flex flex-col sm:flex-row justify-center lg:justify-start items-center gap-4"
@@ -114,7 +111,7 @@ export const Hero = ({ onViewResume }: HeroProps) => {
         {/* Right Column: Image */}
         <div className="w-full lg:w-1/2 flex justify-center lg:justify-end items-center order-2 mt-8 lg:mt-0">
           <motion.div
-            initial={reducedMotion ? { opacity: 1 } : { opacity: 1, scale: 0.98 }}
+            initial={false}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: easeTransition }}
             className="relative w-full max-w-[480px] lg:max-w-[540px] flex justify-center lg:justify-end"

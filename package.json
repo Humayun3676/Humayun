@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build && node scripts/verify-build.mjs",
+    "build": "tsc -b && vite build && node scripts/check-snapshot-freshness.mjs && node scripts/verify-build.mjs",
     "snapshot": "node scripts/generate-snapshot.mjs",
     "lint": "eslint .",
     "preview": "vite preview"
